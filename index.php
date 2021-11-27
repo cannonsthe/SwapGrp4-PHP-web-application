@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php
-echo "Hello HEY!";
+echo "Hello Testing!";
 ?>
 </body>
 </html>

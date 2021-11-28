@@ -9,6 +9,7 @@ table, th, td {
 <title>PHPLab1</title>
 </head>
 <body>
+    <script src=" ">
 <table style="width:100%">
   <tr>
     <th></th>

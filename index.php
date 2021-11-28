@@ -15,6 +15,7 @@
          <a href="#login">Login</a>
          <a href="#feedback">Feedback</a>
          <a href="#about">About</a>
+         <a href="#home" class="active">Home</a>
        </div>
     </div>
 

@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>PHPLab1</title>
+    <link rel="stylesheet" href="Header.css">
 </head>
 <body>
 

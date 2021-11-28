@@ -9,6 +9,7 @@ table, th, td {
 <title>PHPLab1</title>
 </head>
 <body>
+
 <table style="width:100%">
   <tr>
     <th></th>
@@ -41,6 +42,7 @@ table, th, td {
     <td></td>
   </tr>
 </table>
+
 <?php
 echo "HELLO WORLD!!!";
 ?>

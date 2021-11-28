@@ -45,5 +45,8 @@ table, th, td {
 <?php
 echo "HELLO WORLD!!!";
 ?>
+<?php
+echo "HELLO WORLD!!!";
+?>
 </body>
 </html>

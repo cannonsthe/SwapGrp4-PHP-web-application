@@ -5,10 +5,6 @@
 </head>
 <body>
 
-    <?php
-      echo "HELLO WORLD!!!";
-    ?>
-
     <div class="header">
        <a href="#logo" class="Logo">FRecords.Co</a>
        <div class="sections">

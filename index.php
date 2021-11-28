@@ -42,7 +42,7 @@ table, th, td {
   </tr>
 </table>
 <?php
-echo "Hx was here";
+echo "HELLO WORLD!!!";
 ?>
 </body>
 </html>

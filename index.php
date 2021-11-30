@@ -2,7 +2,6 @@
 
 <head>
     <title>PHP Website</title>
-    <link rel="stylesheet" href="Header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 
@@ -21,7 +20,7 @@
             FRecords.co
 
         </a>
-        <a class="navbar-sec ml-auto">
+        <a class="navbar-brand ml-auto">
             <button type="button" class="btn btn-outline-dark navbar-btn" href="login.php">Login</button>
             <button type="button" class="btn btn-outline-dark navbar-btn" href="feedback.php">Feedback</button>
             <button type="button" class="btn btn-outline-dark navbar-btn" href="about.php">About</button>

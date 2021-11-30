@@ -17,7 +17,7 @@
 
         </div> -->
     <ul class="navbar-nav ">
-        <a class="navbar-brand mr-auto " href="feedback.php">
+        <a class="navbar-brand mr-auto " href="#">
             FRecords.co
 
         </a>

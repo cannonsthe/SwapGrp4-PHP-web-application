@@ -3,6 +3,7 @@
     background-color: #bda195;
     padding:10px 10px;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px; 
 }
 
 .navbar a {

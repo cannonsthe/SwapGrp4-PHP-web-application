@@ -23,17 +23,19 @@
     <h2 class="active"> Log In </h2>
 
     <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
+    
+        <div class="fadeIn first" style="margin-left:45%;">
+            <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" id="icon" alt="User Icon" style="height:100px;" />
+        </div>
 
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
+        <!-- Login Form -->
+        <div style="margin-left:42%;margin-top:5px;">
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"><br/>
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" style="margin-top:5px;"><br/>
+                <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top:3px;margin-left:16%;">
+            </form>
+        </div>
   </div>
 </div>
 

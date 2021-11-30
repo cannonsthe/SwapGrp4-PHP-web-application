@@ -11,14 +11,18 @@ body{
 nav{
     background:#0082e6;
     height: 80px;
-    width: 70px;
+    width: 100%;
 }
-.logo{
+label.logo{
     color: white;
     font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
 }
 nav ul li{
     display: inline-block;
@@ -49,7 +53,7 @@ a.selected a:hover{
     display: none;
 }
 @media (max-width: 952px){
-    .logo{
+    label.logo{
         font-size: 30px;
         padding-left: 50px;
     }
@@ -67,7 +71,7 @@ a.selected a:hover{
         height: 100vh;
         background: #2c3e50;
         top: 80px;
-        left: 0;
+        left: -100%;
         text-align: center;
         transition: all .5s;
     }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRecords</title>
+    <title>Login</title>
     <link rel="stylesheet" href="HomePage.css">
     <script src="https://kit.fontawesome.com/c084a746b6.js" crossorigin="anonymous"></script>
 </head>
@@ -12,9 +12,9 @@
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-           <a href="#" class="active">Home</a>
+           <a href="index.php">Home</a>
            <a href="about.php" >About</a>
-           <a href="login.php" >Login</a>
+           <a href="#" class="active">Login</a>
            <a href="feedback.php">Feedback</a>
        </div>
     </div>

@@ -9,19 +9,15 @@
     <script src="https://kit.fontawesome.com/c084a746b6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-           <i class="menu"></i>
-        </label>
-       <label class="logo">FRecords</label>
-       <ul>
-           <li><a class="selected" href="#">Home</a></li>
-           <li><a href="#">Feedback</a></li>
-           <li><a href="#">Login</a></li>
-           <li><a href="#">About</a></li>
-       </ul>
-   </nav>
-   <section></section>
+    <div class="navbar">
+       <a href="#" class="logo">FRecords</a>
+       <div class="sections">
+           <a href="#" class="active">Home</a>
+           <a href="#" >About</a>
+           <a href="#" >Login</a>
+           <a href="#" >Feedback</a>
+       </div>
+    </div>
+
 </body>
 </html>

@@ -32,7 +32,7 @@
 
     <script>
         function myFunction(){
-            location.href = "feedback.php";
+            location.href = "#";
         }
     </script>
     

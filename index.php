@@ -17,7 +17,7 @@
 
         </div> -->
     <ul class="navbar-nav ">
-        <a class="navbar-brand mr-auto " href="feedback.php">
+        <a class="navbar-brand mr-auto ">
             FRecords.co
 
         </a>
@@ -32,7 +32,7 @@
 
     <script>
         function myFunction(){
-            location.href = "#";
+            location.href = "http://localhost:3000/feedback.php";
         }
     </script>
     

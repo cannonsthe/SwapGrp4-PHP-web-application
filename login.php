@@ -21,20 +21,20 @@
     <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2 class="active"> Log In </h2>
+    <h2 class="active"> Login </h2>
 
     <!-- Icon -->
     
-        <div class="fadeIn first" style="margin-left:45%;">
-            <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" id="icon" alt="User Icon" style="height:100px;" />
+        <div class="fadeIn first" style="">
+            <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" id="icon" alt="User Icon" />
         </div>
 
         <!-- Login Form -->
-        <div style="margin-left:42%;margin-top:5px;">
+        <div>
             <form>
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"><br/>
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" style="margin-top:5px;"><br/>
-                <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top:3px;margin-left:16%;">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" ><br/>
+                <input type="submit" class="fadeIn fourth" value="Login" >
             </form>
         </div>
   </div>

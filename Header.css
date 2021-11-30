@@ -18,7 +18,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.navbar-nav a.navbar-brand mr-auto
+.navbar-nav a.navbar-brand 
 {
     font-size: 35px;
     font-weight: bold;
@@ -30,13 +30,13 @@
     color: black;
 }
 
-.navbar-nav a.btn btn-outline-dark navbar-btn
+.navbar-nav a.btn 
 {
     background-color: black;
     color: white;
 }
 
-.navbar-brand ml-auto
+.navbar-brand 
 {
     float: right;
 }
@@ -47,9 +47,14 @@
         display: block;
         text-align: left;
     }
-    .navbar-brand ml-auto {
+    .navbar-brand{
         float: none;
 
     }
 }
 
+.rfloat
+{
+    float: right !important;
+
+}

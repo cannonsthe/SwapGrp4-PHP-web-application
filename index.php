@@ -17,11 +17,11 @@
 
         </div> -->
     <ul class="navbar-nav ">
-        <a class="navbar-brand mr-auto " href="feedback.php">
+        <a class="navbar-brand mr-auto ">
             FRecords.co
 
         </a>
-        <a class="navbar-brand ml-auto">
+        <a class="navbar-sec ml-auto">
             <button type="button" class="btn btn-outline-dark navbar-btn" href="login.php">Login</button>
             <button type="button" class="btn btn-outline-dark navbar-btn" href="feedback.php">Feedback</button>
             <button type="button" class="btn btn-outline-dark navbar-btn" href="about.php">About</button>

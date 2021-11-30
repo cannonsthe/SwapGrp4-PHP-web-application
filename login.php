@@ -27,7 +27,7 @@
 
       <!-- Icon -->
 
-      <div class="fadeIn first" style="">
+      <div class="fadeIn first">
         <img src="/pictures/usericon.png" id="icon" alt="User Icon" />
       </div>
 

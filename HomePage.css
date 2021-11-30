@@ -17,7 +17,7 @@
 }
 
 .navbar a.logo{
-    font-size: 25px;
+    font-size: 35px;
     font-weight: bold;
 }
 
@@ -33,6 +33,7 @@
 
 .sections{
     float: right;
+    font-weight: bold;
 }
 
 @media screen and (max-width:500px){

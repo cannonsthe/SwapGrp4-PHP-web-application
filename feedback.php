@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
     <link rel="stylesheet" href="HomePage.css">
-    <script src="https://kit.fontawesome.com/c084a746b6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

@@ -20,7 +20,49 @@
        </div>
     </div>
 
-    <h1>CPF Contributions</h1>
+    <div class="container">
+        <h1 style="text-align:center;font-family:arial;font-size:35;margin-bottom:0px;">CPF Contributions</h1>
+        <div style="float:left;display:inline-block;">
+            <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:340px;margin-bottom:2px;">Contribution History</h2>
+            <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:155px;margin-bottom:2px;">Account Balance</h2>
+        </div> 
+        <div style="float:left;">
+          
+            <table class="borders" style="margin-left:290px;float:left;">
+                <tr>
+                    <td class="data2">Employee Name</td> 
+                    <td class="data">Larry</td>
+                </tr>
 
+                <tr>
+                    <td class="data2">Paid on</td> 
+                    <td class="data">1st Dec 2021</td>
+              
+                </tr>
+
+                <tr>
+                    <td class="data2">Month</td> 
+                    <td class="data">October</td>
+                </tr>
+
+                <tr>
+                    <td class="data2">Amount</td> 
+                    <td class="data">$700 SGD</td>
+                </tr>
+            </table>
+            
+            <table class="border" style="display:inline-block;margin-left:25px;">
+                <tr>
+                    <td class="data2">Ordinary Account</td> 
+                    <td class="data">$10,752 SGD</td>
+                </tr>
+
+                <tr>
+                    <td class="data2">Special Account</td> 
+                    <td class="data">$734.65 SGD</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

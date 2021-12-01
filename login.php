@@ -36,7 +36,7 @@
         <form>
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"><br />
           <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br />
-          <input type="submit" class="fadeIn fourth" value="Login">
+          <input type="submit" class="fadeIn fourth" value="Login" onclick="window.location.href='Employee.php'"> 
         </form>
       </div>
     </div>

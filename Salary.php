@@ -16,7 +16,7 @@
            <a href="Employee.php" >Employee Information</a>
            <a href="Expenses.php" >Expenses</a>
            <a href="CPF.php">CPF Records</a>
-           <a href="Logouy.php">Logout</a>
+           <a href="index.php">Logout</a>
        </div>
     </div>
     

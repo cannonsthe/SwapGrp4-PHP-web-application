@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="HomePage.css">
 </head>
 <body>
-    <div class="navbar">
+<div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-           <a href="#" class="active">Home</a>
-           <a href="about.php" >About</a>
-           <a href="login.php" >Login</a>
-           <a href="feedback.php">Feedback</a>
+           <a href="Employee.php" >Employee Information</a>
+           <a href="Salary.php" >Employee Salary</a>
+           <a href="Expenses.php" class="active" > General Expenses</a>
+           <a href="CPF.php">CPF Contributions</a>
+           <a href="index.php">Logout</a>
        </div>
     </div>
 

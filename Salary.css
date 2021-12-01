@@ -59,6 +59,7 @@ body{
     border: 5px solid orange;
     border-collapse: separate;
     background-color: white;
+    position: center;
 }
 
 h1{

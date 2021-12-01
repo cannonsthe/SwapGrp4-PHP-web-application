@@ -12,13 +12,46 @@
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-           <a href="#" class="active">Salary Records</a>
+           <a href="#" class="active">Employee Salary</a>
            <a href="Employee.php" >Employee Information</a>
-           <a href="Expenses.php" >Expenses</a>
-           <a href="CPF.php">CPF Records</a>
+           <a href="Expenses.php" > General Expenses</a>
+           <a href="CPF.php">CPF Contributions</a>
            <a href="index.php">Logout</a>
        </div>
     </div>
+
+    <h1>Salary Records</h1>
+    <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
+
+    <table class="Records">
+        <tr>
+           <td>Name</td> 
+           <td>Salary</td>
+           <td>Position</td>
+           <td>Id No.</td>
+        </tr>
+
+        <tr>
+           <td>Alex Tay</td> 
+           <td>$76,000 SGD</td>
+           <td>Finance Manager</td>
+           <td>29891746</td>
+        </tr>
+
+        <tr>
+           <td>Mary Kiat</td> 
+           <td>$78,000 SGD</td>
+           <td>Pricing Analyst</td>
+           <td>44568973</td>
+        </tr>
+
+        <tr>
+           <td>Eng Lai Fa</td> 
+           <td>$220,000 SGD</td>
+           <td>Finance Director</td>
+           <td>78635468</td>
+        </tr>
+    </table>
     
 </body>
 </html>

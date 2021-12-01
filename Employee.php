@@ -23,10 +23,14 @@
     <h1>Employee Information</h1>
 
     <div class="container">
-    <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
-    <div>
-        <strong><p style="font-size:50px;">Full Name</p></strong>
-    </div>
+        <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
+        <form>
+            <label for="name" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Full Name</label>
+            <input type="text" disabled class="form-control" id="fullname">
+            </br>
+            <label for="name" style="margin: 5px auto 0px auto;font-size: 20px;">Last Name</label>
+            <input type="text" disabled class="form-control" id="fullname" >
+        </form>
     </div>
     
 

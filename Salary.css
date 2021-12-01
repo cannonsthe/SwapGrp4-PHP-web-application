@@ -58,8 +58,9 @@ body{
     padding: 10px;
     border: 5px solid orange;
     border-collapse: separate;
-    background-color: white;
+    background-color: orange;
     margin: auto;
+    font-family: Montserrat,sans-serif;
 }
 
 h1{

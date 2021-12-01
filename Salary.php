@@ -12,8 +12,8 @@
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-           <a href="#" class="active">Salary Records</a>
-           <a href="Employee.php" >Employee Information</a>
+           <a href="#" >Employee Information</a>
+           <a href="Employee.php" class="active">Salary Records</a>
            <a href="Expenses.php" >Expenses</a>
            <a href="CPF.php">CPF Records</a>
            <a href="index.php">Logout</a>

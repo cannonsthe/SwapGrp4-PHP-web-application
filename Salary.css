@@ -59,7 +59,8 @@ body{
     border: 5px solid orange;
     border-collapse: separate;
     background-color: white;
-    position: center;
+    position: absolute;
+    right: 15px;
 }
 
 h1{

@@ -60,7 +60,7 @@ body{
     border-collapse: separate;
     background-color: white;
     position: absolute;
-    right: 10px;
+    left: 10px;
 }
 
 h1{

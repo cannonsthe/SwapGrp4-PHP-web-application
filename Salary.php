@@ -23,7 +23,6 @@
     <h1>Salary Records</h1>
     <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
-    <div class="w3-container w3-brown">
        <table class="Records">
            <tr>
               <td>Name</td> 
@@ -53,6 +52,6 @@
               <td>78635468</td>
            </tr>
         </table>
-    </div>
+        
 </body>
 </html>

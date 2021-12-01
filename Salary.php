@@ -23,7 +23,7 @@
     <h1>Salary Records</h1>
     <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
-       <table class="Records">
+       <table class="salary">
            <tr>
               <td>Name</td> 
               <td>Salary</td>
@@ -52,6 +52,6 @@
               <td>78635468</td>
            </tr>
         </table>
-        
+
 </body>
 </html>

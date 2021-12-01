@@ -22,5 +22,15 @@
 
     <h1>Employee Information</h1>
 
+    <div class="container">
+    <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
+    <div>
+        <strong><p style="font-size:50px;">Full Name</p></strong>
+    </div>
+    </div>
+    
+
+
+
 </body>
 </html>

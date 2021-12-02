@@ -83,7 +83,7 @@
     <br><br><br><br>
     <form action="/action_page.php">
         <fieldset>
-            <legend>Personalia:</legend>
+            <legend>Form:</legend>
             <label for="id">Expense ID:</label>
             <input type="text" id="id" name="id"><br><br>
             <label for="type">Type of Expense:</label>

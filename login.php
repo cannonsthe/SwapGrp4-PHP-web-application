@@ -14,10 +14,10 @@
   <div class="navbar">
     <a href="#" class="logo">FRecords</a>
     <div class="sections">
-      <a href="index.php">Home</a>
-      <a href="about.php">About</a>
-      <a href="#" class="active">Login</a>
-      <a href="feedback.php">Feedback</a>
+      <a href="index.php"><strong>Home</strong></a>
+      <a href="about.php"><strong>About</strong></a>
+      <a href="#" class="active"><strong>Login</strong></a>
+      <a href="feedback.php"><strong>Feedback</strong></a>
     </div>
   </div>
   <div class="wrapper fadeInDown">
@@ -37,7 +37,7 @@
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"><br />
           <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br />
           <!-- <input type="submit" class="fadeIn fourth" value="Login" onclick="window.location.href='Employee.php'">  -->
-          <input type="button" class="fadeIn fourth" onclick="window.location.href='Employee.php'">
+          <input type="button" class="fadeIn fourth" value="Login" onclick="window.location.href='Employee.php'">
         </form>
       </div>
     </div>

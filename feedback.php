@@ -13,10 +13,12 @@
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-           <a href="index.php" >Home</a>
-           <a href="about.php" >About</a>
-           <a href="login.php" >Login</a>
-           <a href="#" class="active">Feedback</a>
+       <a href="#" class="active">Employee Information</a>
+           <a href="Salary.php">Employee Salary</a>
+           <a href="Expenses.php" > General Expenses</a>
+           <a href="CPF.php" >CPF Contributions</a>
+           <a href="feedback.php">Feedback</a>
+           <a href="index.php">Logout</a>
        </div>
     </div>
     <br><br>

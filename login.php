@@ -17,7 +17,6 @@
       <a href="index.php"><strong>Home</strong></a>
       <a href="about.php"><strong>About</strong></a>
       <a href="#" class="active"><strong>Login</strong></a>
-      <a href="feedback.php"><strong>Feedback</strong></a>
     </div>
   </div>
   <div class="wrapper fadeInDown">

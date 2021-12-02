@@ -17,7 +17,6 @@
             <a href="index.php">Home</a>
             <a href="#" class="active">About</a>
             <a href="login.php">Login</a>
-            <a href="feedback.php">Feedback</a>
         </div>
     </div>
     <div class="container">

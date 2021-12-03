@@ -42,45 +42,28 @@
         <br><br>
         <input type="submit" value="Retrieve">
     </form>
+    <?php
+    $con = mysqli_connect("localhost", "root", "", "swaprj"); //connect to database
+    if (!$con) {
+        die('Could not connect: ' . mysqli_connect_errno()); //return error is
+    }
+    $query = $con->prepare("select * from expenses");
+    $query->execute();
+    $query->bind_result($expenseid, $date, $type, $amount);
+    echo "<table class='salary'><tr>";
+    echo
+    "<th>| Expense ID</th><th>| Date |</th><th>Type of Expense |</th><th>Amount |</t
+    h></tr>";
+    while ($query->fetch()) {
+        //do something
+        echo
+        "<th>$expenseid</th><th>$date</th><th>$type</th><th>$amount</t
+    h></tr>";
+    }
+    echo "</table>";
+    ?>
 
-    <table class="salary">
-        <tr>
-            <td>ID</td>
-            <td>Date</td>
-            <td>Type of Expenses</td>
-            <td>Amount</td>
-        </tr>
-        <br>
 
-        <tr>
-            <br>
-            <td>20190001</td>
-            <td>3/1/2019</td>
-            <td>Freight Expenses </td>
-            <td>8000</td>
-        </tr>
-
-        <tr>
-            <td>20190002</td>
-            <td>16/1/2019</td>
-            <td>Utilities</td>
-            <td>10000</td>
-        </tr>
-
-        <tr>
-            <td>20190003</td>
-            <td>28/1/2019</td>
-            <td>Employee's salary</td>
-            <td>30000</td>
-        </tr>
-
-        <tr>
-            <td>20190004</td>
-            <td>27/5/2019</td>
-            <td>Maintenance fees</td>
-            <td>6000</td>
-        </tr>
-    </table>
     <br><br><br><br>
     <form action="/action_page.php">
         <fieldset>

@@ -54,5 +54,7 @@
            </tr>
         </table>
 
+        <button type="button" class="addbtn" href="AddSalary.php"> Add Salary Record</button>
+
 </body>
 </html>

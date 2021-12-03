@@ -54,7 +54,15 @@
            </tr>
         </table>
 
-        <button type="button" class="addbtn" href="AddSalary.php"> Add Salary Record</button>
+        <form>
+             <input type="button" value="Add Salary Records" onclick= "Salary2()">
+        </form>
 
+
+        <script>
+            function Salary2(){
+               location.href="AddSalary.php"
+            }
+        </script>
 </body>
 </html>

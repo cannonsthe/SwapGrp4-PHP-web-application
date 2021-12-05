@@ -13,7 +13,9 @@ $query = $con->prepare("INSERT INTO `expenses` (`date`,`type`,`amount`) VALUES
 
 $query->bind_param('sss',$date, $type, $amount); //bind the parameters
 if ($query->execute()) { //execute query
+    header("Location: /Expenses.php");
     echo '<script>alert("Entry Inserted!")</script>';
 } else {
     echo "Error executing query.";
 }
+?>

@@ -52,7 +52,7 @@
     $query->bind_result($expenseid, $date, $type, $amount);
     echo "<table class='salary'><tr>";
     echo
-    "<th>| Expense ID</th><th>| Date |</th><th>Type of Expense |</th><th>Amount |</t
+    "<th>| Expense ID</th><th>| Date |</th><th>Type of Expense |</th><th> Amount |</t
     h></tr>";
     while ($query->fetch()) {
         //do something
@@ -65,20 +65,15 @@
 
 
     <br><br><br><br>
-    <form action="/action_page.php">
+    <form action="/Expenses_post.php" method="POST">
         <fieldset>
             <legend>Form:</legend>
-            <label for="id">Expense ID:</label>
-            <input type="text" id="id" name="id"><br><br>
+            
             <label for="type">Type of Expense:</label>
             <input type="text" id="type" name="type"><br><br>
             <label for="amount">Amount:</label>
             <input type="text" id="amount" name="amount"><br><br>
-            <label for="date1">Date of entry:</label>
-            <input type="date" id="date1" name="date1"><br><br>
             <input type="submit" value="Create new">
-            <input type="submit" value="Update">
-            <input type="submit" value="Delete">
         </fieldset>
     </form>
 

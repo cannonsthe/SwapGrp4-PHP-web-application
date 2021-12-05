@@ -29,15 +29,6 @@
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
-            <!--  <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option> -->
         </select>
         <br><br>
         <input type="submit" value="Retrieve">
@@ -69,6 +60,8 @@
         <fieldset>
             <legend>Form:</legend>
             
+            <label for="year">Year of Expense:</label>
+            <input type="text" id="year" name="year"><br><br>
             <label for="type">Type of Expense:</label>
             <input type="text" id="type" name="type"><br><br>
             <label for="amount">Amount:</label>

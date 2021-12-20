@@ -40,9 +40,6 @@
      //Getting the rows of data from the salary table
      $nrows=mysqli_num_rows($result);  //Data from each row from $result is taken through the mysqli_num_rows function and then sent to $nrows
      
-     //Echo number of rows
-     echo "$nrows rows<br>";
-
      //Create a loop that returns each row of data until there is no more data left while there is at least one row of data
      if ($nrows>0){  
          echo "<table>";    //Print out table of data

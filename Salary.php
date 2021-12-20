@@ -54,6 +54,30 @@
            </tr>
         </table>
 
+     <?php
+     //Creating mysql variables to specify attributes for mysql connection
+     $mysql_host="localhost";  //MySQL server's ip address
+     $mysql_user="root";   //MySQL server's user privilege
+     $mysql_password="";  //MySQL server's password
+     
+     
+     $con = mysqli_connect($mysql_host,$mysql_user,$mysql_password);  //Open a connection to database server
+     
+     //Check if the connection works or not
+     if (!$con){
+        echo mysqli_connect_errno() ."<br>";  //If connection does not work, echo error code
+        die('Failed to connect: ' .mysqli_connect_error()); //Terminate current script and show error description
+     }
+     else {
+        echo "Connection to server at $mysql_host successful<br>";  // Echo successful connection
+     }
+     
+     echo "Disconnecting now<br>";
+     mysqli_close($con);      //Close previously opened database connection
+     
+     ?>
+
+
 
 </body>
 </html>

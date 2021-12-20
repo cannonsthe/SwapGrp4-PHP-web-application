@@ -76,3 +76,11 @@ h1{
     font-size: 15px;
     text-align: center;
 }
+
+.AddBtn{
+    padding: 10px;
+    margin: auto;
+    background-color: #856f66;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

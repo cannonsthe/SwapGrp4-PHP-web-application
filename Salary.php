@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <div class="navbar">
+    <div class="navbar">   <!--Navigation bar-->
        <a href="#" class="logo">FRecords</a>
-       <div class="sections">
+       <div class="sections">                                        <!--Different sections and links to the pages-->
            <a href="Employee.php" >Employee Information</a>
            <a href="#" class="active">Employee Salary</a>
            <a href="Expenses.php" > General Expenses</a>
@@ -24,7 +24,7 @@
     <h1>Salary Records</h1>
     <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
-       <table class="salary">
+       <table class="salary">      <!--Table-->
            <tr>
               <td>Name</td> 
               <td>Salary</td>
@@ -54,14 +54,14 @@
            </tr>
         </table>
 
-        <form>
-             <input type="button" value="Add Salary Records" onclick= "Salary2()">
+        <form>    <!--Execute the function Salary2() when user clicks on the Add Salary Records-->
+             <input type="button" class="AddBtn" value="Add Salary Records" onclick= "Salary2()">
         </form>
 
-
-        <script>
+         <!--Salary2() that redirects user to Salary_Add page-->
+        <script>                             
             function Salary2(){
-               location.href="AddSalary.php"
+               location.href="Salary_Add.php"
             }
         </script>
 </body>

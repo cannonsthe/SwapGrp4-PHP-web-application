@@ -17,7 +17,7 @@
           margin:auto;
        }
        td,th {
-          font-famiy:Montserrat,sans-serif;
+          font-family:Montserrat,sans-serif;
        }
    </style>
 

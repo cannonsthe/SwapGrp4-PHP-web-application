@@ -59,14 +59,14 @@
      $mysql_host="localhost";  //MySQL server's ip address
      $mysql_user="root";   //MySQL server's user privilege
      $mysql_password="";  //MySQL server's password
+     $mysql_db="swaprj"; //MySQL server's database name
      
      
-     $con = mysqli_connect($mysql_host,$mysql_user,$mysql_password);  //Open a connection to database server
+     $con = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db);  //Open a connection to database server
      
      //Check if the connection works or not
      if (!$con){
-        echo mysqli_connect_errno() ."<br>";  //If connection does not work, echo error code
-        die('Failed to connect: ' .mysqli_connect_error()); //Terminate current script and show error description
+        die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
      }
      else {
         echo "Connection to server at $mysql_host successful<br>";  // Echo successful connection

@@ -54,15 +54,9 @@
            </tr>
         </table>
 
-        <form>    <!--Execute the function Salary2() when user clicks on the Add Salary Records-->
-             <input type="button" class="AddBtn" value="Add Salary Records" onclick= "Salary2()">
+        <form>    <!--Creates a button known as Add Salary Records-->
+             <input type="button" class="AddBtn" value="Add Salary Records">
         </form>
 
-         <!--Salary2() that redirects user to Salary_Add page-->
-        <script>                             
-            function Salary2(){
-               location.href="Salary_Add.php"
-            }
-        </script>
 </body>
 </html>

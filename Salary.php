@@ -54,9 +54,6 @@
            </tr>
         </table>
 
-        <form>    <!--Creates a button known as Add Salary Records-->
-             <input type="button" class="AddBtn" value="Add Salary Records">
-        </form>
 
 </body>
 </html>

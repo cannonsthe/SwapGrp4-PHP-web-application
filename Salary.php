@@ -6,21 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Salary</title>
     <link rel="stylesheet" href="Salary.css">
-    
-
-    <style>
-       table {
-          border: 5px solid rgb(219,147,14);
-          padding: 10px;
-          border-collapse:separate;
-          background-color:orange;
-          margin:auto;
-       }
-       td,th {
-          font-family:Montserrat,sans-serif;
-       }
-   </style>
-
 </head>
 <body>
 
@@ -46,9 +31,6 @@
      //Check if the connection works or not
      if (!$con){
         die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
-     }
-     else {
-        echo "Connection to database server successful<br>";  // Echo successful connection
      }
 
      //Query swaprj database and select data from salary table
@@ -91,9 +73,6 @@
      else {
         echo "There are no salary records<br>";// If there is no data, this message will be displayed
      }
-     
-     echo "Disconnecting now<br>";
-     mysqli_close($con);      //Close previously opened database connection
      
      ?>
 

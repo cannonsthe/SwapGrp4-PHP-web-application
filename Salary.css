@@ -52,6 +52,7 @@ body{
     background: url(https://img.wallpapersafari.com/tablet/768/1024/11/43/87D9cX.jpg) no-repeat;
     background-size: cover;
     height: calc(100vh - 80px);
+    overflow: scroll;
 }
 
 .salary{

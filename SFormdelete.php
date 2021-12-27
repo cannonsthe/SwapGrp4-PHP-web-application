@@ -30,8 +30,16 @@
         die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code if connection fails
      }
 
+     //GET
+     echo "isset(_GET[userid])=" . isset($_GET['userid']);
+     echo "<br>";
+     echo "empty(_GET[userid])=" . empty($_GET['userid']);
+     echo "<br>";
+     echo "_GET[userid]=" . $_GET['userid'];
+     echo "<br>";
+
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary". "WHERE UserID=" . $_GET['userid'];  //Run GET request for new id along with select query data
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary" . "WHERE UserID=" . $_GET['userid'];  //Run GET request for new id along with select query data
      $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table

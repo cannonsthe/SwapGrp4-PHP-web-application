@@ -11,7 +11,7 @@
 
     <div class="navbar">   <!--Navigation bar-->
        <a href="#" class="logo">FRecords</a>
-       <div class="sections">                                        <!--Different sections and links to the pages-->
+       <div class="sections">                                        
            <a href="Employee.php" >Employee Information</a>
            <a href="#" class="active">Employee Salary</a>
            <a href="Expenses.php" > General Expenses</a>
@@ -48,7 +48,7 @@
                  echo "<th>Amount</th>";
                  echo "<th>Position</th>";
                  echo "<th>Name</th>"; 
-                 echo "<th>Remove Row</th>";   //Create Remove Row Header
+                 echo "<th>Remove Row</th>";   
              echo "</tr>";
         while ($row=mysqli_fetch_assoc($result)) {  
              echo "<tr>";   //Print out next row after columns have been specified previously

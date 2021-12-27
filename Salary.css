@@ -77,3 +77,11 @@ table{
     margin:auto;
     font-family: Montserrat,sans-serif;
 }
+
+.submitbtn{
+    background-color: orange;
+    color: white;
+    font-family: Montserrat,sans-serif;
+    margin: auto;
+    padding: 10px;
+}

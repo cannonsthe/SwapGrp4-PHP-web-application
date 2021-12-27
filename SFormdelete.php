@@ -31,7 +31,7 @@
      }
 
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary ". "WHERE userid=" . $_GET['ID'];  //Run GET request for new id along with select query data for specified row, WHERE retrieves the column data and UserID retrieves the ID
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary ". "WHERE userid=" . $_GET['UserID'];  //Run GET request for new id along with select query data for specified row, WHERE retrieves the column data and UserID retrieves the ID
      $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table
@@ -72,8 +72,8 @@
       
       <!--Redirects user to another page for deletion confirmation using GET method-->
      <form action="SProcessdelete.php" method="get">   
-     <input type="hidden" name="id" value="<?php echo $_GET['ID']; ?>"><br> <!--Sends old id to be removed to database server in hidden data form and then runs GET request for new id-->    
-     <input type="submit" value="Click to confirm deletion">
+     <input type="hidden" name="ID" value="<?php echo $_GET['UserID']; ?>"><br> <!--Sends old id to be removed to database server in hidden data form and then runs GET request for new id-->    
+     <input type="submit" class="submitbtn" value="Click to confirm deletion">
      </form>
 
 </body>

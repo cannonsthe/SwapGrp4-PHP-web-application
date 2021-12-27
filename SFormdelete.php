@@ -31,7 +31,8 @@
      }
 
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary";  //Run GET request for new id along with select query data
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary ". 
+         "WHERE UserID=" . $_GET['userid'];  //Run GET request for new id along with select query data
      $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table

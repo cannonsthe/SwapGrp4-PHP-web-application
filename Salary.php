@@ -34,8 +34,8 @@
      }
 
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary"; //SELECT all the data from the columns in the salary table
-     $result=mysqli_query($con,$query); //mysqli_query executes the checking of the connection from $con and also gets the data from our salary table through $query, and then send that data to the $results variable
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary"; 
+     $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table
      $nrows=mysqli_num_rows($result);  //Data from each row from $result is taken through the mysqli_num_rows function and then sent to $nrows
@@ -76,7 +76,6 @@
      }
      
      ?>
-
 
 
 </body>

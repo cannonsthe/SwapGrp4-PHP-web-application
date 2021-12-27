@@ -21,24 +21,21 @@
        </div>
     </div>
 
-    <h1>Salary Records</h1>
-    <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
-
-     <?php
+    <?php
      
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      
      //Check if the connection works or not
      if (!$con){
-        die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
+        die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code if connection fails
      }
 
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary"; //SELECT all the data from the columns in the salary table
-     $result=mysqli_query($con,$query); //mysqli_query executes the checking of the connection from $con and also gets the data from our salary table through $query, and then send that data to the $results variable
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary". "WHERE UserID=" . $_GET['userid'];  //Run GET request for new id along with select query data
+     $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table
-     $nrows=mysqli_num_rows($result);  //Data from each row from $result is taken through the mysqli_num_rows function and then sent to $nrows
+     $nrows=mysqli_num_rows($result);  
      
      //Create a loop that returns each row of data until there is no more data left while there is at least one row of data
      if ($nrows>0){  
@@ -48,7 +45,6 @@
                  echo "<th>Amount</th>";
                  echo "<th>Position</th>";
                  echo "<th>Name</th>"; 
-                 echo "<th>Remove Row</th>";   //Create Remove Row Header
              echo "</tr>";
         while ($row=mysqli_fetch_assoc($result)) {  
              echo "<tr>";   //Print out next row after columns have been specified previously
@@ -64,9 +60,6 @@
                  echo "<td>";
                  echo $row['fname'];
                  echo "</td>";
-                 echo "<td>";
-                 echo "<a href=Salarydelete.php?UserID=" . $row['userid'] . ">Delete</a>"; //Create a delete link that replaces old id with new id in another php page
-                 echo "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -76,8 +69,12 @@
      }
      
      ?>
-
-
+      
+      <!--Redirects user to another page for deletion confirmation using GET method-->
+     <form action="SProcessdelete.php" method="get">   
+     <input type="hidden" name="UserID" value="<?php echo $_GET['userid']; ?>"><br>    <!--Sends old id to be removed to database server in hidden data form and then runs GET request for new id-->
+     <input type="submit" value="Click to confirm deletion">
+     </form>
 
 </body>
 </html>

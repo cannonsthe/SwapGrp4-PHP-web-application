@@ -65,7 +65,7 @@
                  echo $row['fname'];
                  echo "</td>";
                  echo "<td>";
-                 echo "<a href=Salarydelete.php?UserID=" . $row['userid'] . ">Delete</a>"; //Create a delete link that replaces old id with new id in another php page
+                 echo "<a href=SFormdelete.php?UserID=" . $row['userid'] . ">Delete</a>"; //Create a delete link that replaces old id with new id in another php page
                  echo "</td>";
             echo "</tr>";
         }

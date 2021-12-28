@@ -12,14 +12,9 @@
      <form action="SProcessadd.php" method="post">
          Amount: <input type="text" name="amount"><br>
          Position: <input type="text" name="position"><br>
-         Name: <input type="text" name="name"><br>
+         Name: <input type="text" name="fname"><br>
          <input type="submit" value="Submit">
      </form>
-
-
-
-
-
     
 </body>
 </html>

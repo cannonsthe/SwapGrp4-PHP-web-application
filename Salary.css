@@ -88,3 +88,15 @@ table{
     border: 5px solid rgb(219,147,14);
     border-radius: 5px;
 }
+
+.createbtn{
+    background-color: orange;
+    color: white;
+    font-family: Montserrat,sans-serif;
+    position: relative;
+    top:200px;
+    left: 680px;
+    padding: 10px;
+    border: 5px solid rgb(219,147,14);
+    border-radius: 5px;
+}

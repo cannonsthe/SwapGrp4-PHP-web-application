@@ -24,6 +24,11 @@
     <h1>Salary Records</h1>
     <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
+    <form action="SFormcreate.php">
+        <input type="submit" class="createbtn" value="Add Records">
+    </form>
+
+
      <?php
      
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)

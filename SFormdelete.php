@@ -72,7 +72,7 @@
       
       <!--Redirects user to another page for deletion confirmation using GET method-->
      <form action="SProcessdelete.php" method="get">   
-     <input type="hidden" name="ID" value="<?php echo $_GET['UserID']; ?>"><br> <!--Stores old id in database using GET and then through hidden data form and assigns the name "ID" to this old id for processing    
+     <input type="hidden" name="ID" value="<?php echo $_GET['UserID']; ?>"><br> <!--Stores old id in database using GET and then through hidden data form and assigns the name "ID" to this old id for processing-->    
      <input type="submit" class="submitbtn" value="Click to confirm deletion">
      </form>
 

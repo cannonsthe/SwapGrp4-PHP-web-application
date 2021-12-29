@@ -24,7 +24,7 @@
 
     <?php
 
-    $amount=$_POST['amount'];
+    $amount=$_POST['amount'];         //Use POST method to retrive data under columns in salary table
     $position=$_POST['position'];
     $name=$_POST['fname'];
 

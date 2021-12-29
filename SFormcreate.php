@@ -22,7 +22,7 @@
     </div>
 
      <b>Add Records</b><br>
-     <form action="SProcesscreate.php" method="post">
+     <form action="SProcesscreate.php" method="post">        <!--Create form for adding record-->
          Amount: <input type="text" name="amount"><br>
          Position: <input type="text" name="position"><br>
          Name: <input type="text" name="fname"><br>

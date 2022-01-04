@@ -22,8 +22,8 @@
     </div>
 
      <b>Add Records</b><br>
-     <form action="SProcesscreate.php" method="post">        <!--Create form for adding record-->
-         UserID: <input type="text" name-="userid"><br>
+     <form action="SProcess_create.php" method="post">        <!--Create form for adding record-->
+         UserID: <input type="text" name-="id"><br>
          Amount: <input type="text" name="amount"><br>
          Position: <input type="text" name="position"><br>
          Name: <input type="text" name="fname"><br>

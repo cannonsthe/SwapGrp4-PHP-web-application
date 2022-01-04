@@ -23,6 +23,7 @@
 
     <?php
 
+    //Use POST method to specify variables and get data from our database
     $userid=$_POST['userid'];
     $amount=$_POST['amount'];
     $position=$_POST['position'];

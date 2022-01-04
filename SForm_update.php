@@ -37,10 +37,7 @@
 
      //Getting the rows of data from the salary table
      $nrows=mysqli_num_rows($result); 
-
-
-    //Create variables for the data in the salary table
-     if ($nrows>0){
+     if ($nrows>0) {                       //Create variables for the data in the salary table
          $row=mysqli_fetch_assoc($result);
          $userid=$row['userid'];
          $amount=$row['amount'];
@@ -59,7 +56,7 @@
     <input type="hidden" name="userid" value="<?php echo $_GET['userid']; ?>"><br>
     Amount: <input type="text" name="amount" value="<?php echo $amount; ?>"><br>
     Position: <input type="text" name="position" value="<?php echo $position; ?>"><br>
-    Name: <input type="text" name="name" value="<?php echo $name; ?>"><br>
+    Name: <input type="text" name="fname" value="<?php echo $name; ?>"><br>
     <input type="submit" value="Click to update records">
     </form>
 

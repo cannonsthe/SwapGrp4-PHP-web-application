@@ -37,14 +37,14 @@
      }
 
     //UPDATE sql query 
-    $query="UPDATE swaprj.salary SET amount='$amount',position='$position',fname='$name' WHERE userid='$userid' ";
+    $query="UPDATE swaprj.salary SET amount='$amount', position='$position', fname='$name' WHERE userid='$userid' ";
     $result=mysqli_query($con,$query);
     if (!$result){
         echo ("UPDATE Failed<br>");
         echo mysqli_error($con)."<br>";
     }
     else{
-       echo "UPDATE OK<br>";
+       echo "Records updated successfully!<br>";
     }
 
 

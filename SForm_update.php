@@ -56,7 +56,7 @@
     
     <!--Create form for updating-->
     <form action="SProcess_update.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $_GET['userid']; ?>"><br>
+    <input type="hidden" name="userid" value="<?php echo $_GET['userid']; ?>"><br>
     Amount: <input type="text" name="amount" value="<?php echo $amount; ?>"><br>
     Position: <input type="text" name="position" value="<?php echo $position; ?>"><br>
     Name: <input type="text" name="name" value="<?php echo $name; ?>"><br>

@@ -76,7 +76,7 @@
      ?>
 
      <br>
-     <a href="Salary.php">Back to Salary Records</a>
+     <a href="Salary.php" class="Dbackbtn">Back to Salary Records</a>
      <br>
 
 </body>

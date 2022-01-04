@@ -75,8 +75,7 @@ table{
     border-collapse:separate;
     background-color:orange;
     position: relative;
-    top:50px;
-    left:470px;
+    margin: auto;
     font-family: Montserrat,sans-serif;
 }
 
@@ -96,8 +95,20 @@ table{
     color: white;
     font-family: Montserrat,sans-serif;
     position: relative;
-    bottom:-20px;
+    bottom:10px;
     left: 680px;
+    padding: 10px;
+    border: 5px solid rgb(219,147,14);
+    border-radius: 5px;
+}
+
+.Dbackbtn{
+    background-color: orange;
+    color: white;
+    font-family: Montserrat,sans-serif;
+    position:relative;
+    top:20px;
+    left:640px;
     padding: 10px;
     border: 5px solid rgb(219,147,14);
     border-radius: 5px;

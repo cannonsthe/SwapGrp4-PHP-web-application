@@ -24,6 +24,7 @@
 
     <?php
 
+    $userid=$_POST['userid'];
     $amount=$_POST['amount'];         //Use POST method to retrive data under columns in salary table
     $position=$_POST['position'];
     $name=$_POST['fname'];
@@ -36,8 +37,8 @@
         die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
      }
 
-     $query="INSERT INTO swaprj.salary (amount,position,fname)" .
-     "VALUES ('$amount', '$position', '$name');";
+     $query="INSERT INTO swaprj.salary (userid,amount,position,fname)" .
+     "VALUES ('$userid', '$amount', '$position', '$name');";
      $result=mysqli_query($con,$query);
      if(!$result){
         echo ("Failed to add Records<br>");

@@ -50,5 +50,9 @@
      ?>
 
 
+     <br>
+     <a href="Salary.php" class="Dbackbtn">Back to Salary Records</a>
+     <br>
+
 </body>
 </html>  

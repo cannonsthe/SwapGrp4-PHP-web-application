@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMployee Salary</title>
+    <title>Employee Salary</title>
     <link rel="stylesheet" href="Salary.css">
 </head>
 <body>
@@ -53,7 +53,7 @@
     
     <!--Create form for updating-->
     <form action="SProcess_update.php" method="post">
-    <input type="hidden" name="userid" value="<?php echo $_GET['userid']; ?>"><br>
+    <input type="hidden" name="userid" value="<?php echo $_GET['UserID']; ?>"><br>
     Amount: <input type="text" name="amount" value="<?php echo $amount; ?>"><br>
     Position: <input type="text" name="position" value="<?php echo $position; ?>"><br>
     Name: <input type="text" name="fname" value="<?php echo $name; ?>"><br>

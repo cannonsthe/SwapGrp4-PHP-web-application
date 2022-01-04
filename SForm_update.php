@@ -60,6 +60,5 @@
     <input type="submit" value="Click to update records">
     </form>
 
-    
 </body>
 </html>

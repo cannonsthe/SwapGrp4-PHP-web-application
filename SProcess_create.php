@@ -24,7 +24,7 @@
 
     <?php
 
-    $id=$_POST['userid'];
+    $userid=$_POST['userid'];
     $amount=$_POST['amount'];         //Use POST method to retrive data under columns in salary table
     $position=$_POST['position'];
     $name=$_POST['fname'];
@@ -38,7 +38,7 @@
      }
 
      $query="INSERT INTO swaprj.salary (userid,amount,position,fname)" .
-     "VALUES ('$id', '$amount', '$position', '$name');";
+     "VALUES ('$userid', '$amount', '$position', '$name');";
      $result=mysqli_query($con,$query);
      if(!$result){
         echo ("Failed to add Records<br>");

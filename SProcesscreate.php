@@ -40,11 +40,11 @@
      "VALUES ('$amount', '$position', '$name');";
      $result=mysqli_query($con,$query);
      if(!$result){
-        echo ("INSERT Failed<br>");
+        echo ("Failed to add Records<br>");
         echo mysqli_error($con). "<br>";
      }
      else{
-         echo "INSERT OK<br>";
+         echo "Records added successfully!<br>";
      }
      ?>
 

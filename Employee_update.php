@@ -12,7 +12,7 @@ $position = $_REQUEST['position'];
 $password = $_REQUEST['password'];
 $bankname = $_REQUEST['bankname'];
 $accountnumber = $_REQUEST['accountnumber'];
-$userid = $_REQUEST['userid']
+$userid = $_REQUEST['userid'];
 
 $query->bind_param('sssssss', $fname, $password, $email, $department, $position, $bankname, $accountnumber, $userid); //bind the parameters
 if ($query->execute()){

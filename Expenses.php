@@ -56,7 +56,7 @@
 
         $year = $_REQUEST['year']; #########Test Retrieve
         echo $year;
-        if($year == null){
+        if ($year == null) {
             $year = 'All';
         };
         if ($year == "All") {
@@ -75,7 +75,7 @@
             }
             echo "</table>";
         } else/* ($year>=0000) */ {
-           
+
             $query = $con->prepare("select * from expenses WHERE year=$year");
             $query->execute();
             $query->bind_result($expenseid, $year, $type, $amount);
@@ -96,10 +96,12 @@
         ?>
     </form>
     <br><br><br><br>
-    <form>
+    <form action="/Expenses_Crud.php">
         <fieldset>
             <legend>Form:</legend>
-
+            <input type="radio" value="add" name="actiontype">Add<br>
+            <input type="radio" value="update" name="actiontype">Update<br>
+            <input type="radio" value="delete" name="actiontype">Delete <br>
             <label for="year">Year of Expense:</label>
             <input type="text" id="year" name="year"><br><br>
             <label for="type">Type of Expense:</label>
@@ -108,10 +110,7 @@
             <input type="text" id="amount" name="amount"><br><br>
             <label for="expenseid">Expense ID (Only Use For Updating or Deleting!):</label>
             <input type="text" id="expenseid" name="expenseid"><br><br>
-            <input type="submit" value="Create new" formmethod="POST" formaction="/Expenses_post.php">
-            <input type="submit" value="Update" formmethod="PUT" formaction="/Expenses_update.php">
-            <input type="submit" value="Delete" formmethod="DELETE" formaction="/Expenses_delete.php">
-
+            <input type="submit" name="action" value="Do">
         </fieldset>
     </form>
 

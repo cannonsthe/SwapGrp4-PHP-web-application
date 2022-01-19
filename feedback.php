@@ -13,26 +13,36 @@
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
-       <a href="#" class="active">Employee Information</a>
+       <a href="Employee.php">Employee Information</a>
            <a href="Salary.php">Employee Salary</a>
            <a href="Expenses.php" > General Expenses</a>
            <a href="CPF.php" >CPF Contributions</a>
-           <a href="feedback.php">Feedback</a>
+           <a href="feedback.php" class="active">Feedback</a>
            <a href="index.php">Logout</a>
        </div>
     </div>
     <br><br>
     <div class="container">
-  <form action="action_page.php">
+  <form action="feedback_create.php" method="post">
 
+    
     <label for="fname">Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name">
-    <label for="lname">Email</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your email">
+    <input type="text" name="fname">
+    <!---id="fname" placeholder="Your name"--->
     <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" placeholder="Subject">
+    <input type="text" name="subject">
+    <!---id="subject" placeholder="Subject"--->
+    <label for="email">Email</label>
+    <input type="text" name="email">
+    <!---id="email" placeholder="Your email"--->
     <label for="feedback">Feedback</label>
-    <textarea id="feedback" name="feedback" placeholder="Feedback" style="height:200px"></textarea>
+    <textarea style="height:200px" name="feedback"></textarea>
+    <!---id="feedback" placeholder="Feedback"--->
+    <label for="department">Department</label>
+    <input type="text" name="department">
+    
+    
+    
 
     <input type="submit" value="Submit">
 

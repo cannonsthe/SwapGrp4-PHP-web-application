@@ -62,7 +62,12 @@
                     <td class="data2">Special Account</td> 
                     <td class="data">$734.65 SGD</td>
                 </tr>
-            </table>
+            </table><br>
+            <div style="text-align:center;">
+                <a href="CPF_CRUD.php">
+                    <input type="button" value="Edit CPF" />
+                </a>
+            </div>
         </div>
     </div>
 </body>

@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="Salary.css">
 </head>
 <body>
-
+    
     <div class="navbar">   <!--Navigation bar-->
        <a href="#" class="logo">FRecords</a>
-       <div class="sections">                                        <!--Different sections and links to the pages-->
+       <div class="sections">                                        
            <a href="Employee.php" >Employee Information</a>
            <a href="#" class="active">Employee Salary</a>
            <a href="Expenses.php" > General Expenses</a>
@@ -21,8 +21,6 @@
        </div>
     </div>
 
-    <h1>Salary Records</h1>
-    <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
      <?php
      
@@ -33,9 +31,13 @@
         die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
      }
 
+     //Query swaprj database and delete data from salary table
+    $query="DELETE FROM swaprj.salary WHERE userid=" . $_GET['ID'];
+    $result=mysqli_query($con,$query);
+
      //Query swaprj database and select data from salary table
-     $query="SELECT userid, amount, position, fname FROM swaprj.salary"; //SELECT all the data from the columns in the salary table
-     $result=mysqli_query($con,$query); //mysqli_query executes the checking of the connection from $con and also gets the data from our salary table through $query, and then send that data to the $results variable
+     $query="SELECT userid, amount, position, fname FROM swaprj.salary"; 
+     $result=mysqli_query($con,$query); 
      
      //Getting the rows of data from the salary table
      $nrows=mysqli_num_rows($result);  //Data from each row from $result is taken through the mysqli_num_rows function and then sent to $nrows
@@ -47,8 +49,7 @@
                  echo "<th>UserID</th>";    //Print out the queried columns for printed row
                  echo "<th>Amount</th>";
                  echo "<th>Position</th>";
-                 echo "<th>Name</th>";
-                 echo "<th>Remove Row?</th>"; //echo row for deleting entries
+                 echo "<th>Name</th>"; 
              echo "</tr>";
         while ($row=mysqli_fetch_assoc($result)) {  
              echo "<tr>";   //Print out next row after columns have been specified previously
@@ -64,9 +65,6 @@
                  echo "<td>";
                  echo $row['fname'];
                  echo "</td>";
-                 echo "<td>";
-                 echo "<a href=salaryform_delete.php?UserID=" . $row['userid'] . ">delete</a>";  // Create link to salaryform_delete.php to append new id and remove old one when delete link is clicked
-                 echo "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -76,6 +74,10 @@
      }
      
      ?>
+
+     <br>
+     <a href="Salary.php" class="Dbackbtn">Back to Salary Records</a>
+     <br>
 
 </body>
 </html>

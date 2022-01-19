@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="Salary.css">
 </head>
 <body>
-    
-    
+
     <div class="navbar">   <!--Navigation bar-->
        <a href="#" class="logo">FRecords</a>
        <div class="sections">                                        
@@ -24,11 +23,12 @@
 
     <?php
 
-    $amount=$_POST['amount'];         //Use POST method to retrive data under columns in salary table
+    //Use POST method to specify variables and get data from our database
+    $userid=$_POST['userid'];
+    $amount=$_POST['amount'];
     $position=$_POST['position'];
     $name=$_POST['fname'];
 
-    
     $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      
      //Check if the connection works or not
@@ -36,18 +36,26 @@
         die('Failed to connect: ' .mysqli_connect_errno()); //Terminate current script and show error code
      }
 
-     $query="INSERT INTO swaprj.salary (amount,position,fname)" .
-     "VALUES ('$amount', '$position', '$name');";
-     $result=mysqli_query($con,$query);
-     if(!$result){
-        echo ("INSERT Failed<br>");
-        echo mysqli_error($con). "<br>";
-     }
-     else{
-         echo "INSERT OK<br>";
-     }
-     ?>
+    //UPDATE sql query 
+    $query="UPDATE swaprj.salary SET amount='$amount', position='$position', fname='$name' WHERE userid='$userid' ";
+    $result=mysqli_query($con,$query);
+    if (!$result){
+        echo ("UPDATE Failed<br>");
+        echo mysqli_error($con)."<br>";
+    }
+    else{
+       echo "Records updated successfully!<br>";
+    }
+
+
+    ?>
+    
+    <br>
+     <a href="Salary.php" class="Dbackbtn">Back to Salary Records</a>
+     <br>
+
+
 
 
 </body>
-</html>  
+</html>

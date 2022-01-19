@@ -24,7 +24,7 @@
     <h1>Salary Records</h1>
     <p class="warning">These records are strictly confidential. Do not distribute or share without permission.Violators will be punished!</p>
 
-    <form action="SFormcreate.php">
+    <form action="SForm_create.php">
         <input type="submit" class="createbtn" value="Add Records">
     </form>
 
@@ -54,6 +54,7 @@
                  echo "<th>Position</th>";
                  echo "<th>Name</th>"; 
                  echo "<th>Remove Row</th>";   
+                 echo "<th>Modify Records</th>";
              echo "</tr>";
         while ($row=mysqli_fetch_assoc($result)) {  
              echo "<tr>";   //Print out next row after columns have been specified previously
@@ -70,7 +71,10 @@
                  echo $row['fname'];
                  echo "</td>";
                  echo "<td>";
-                 echo "<a href=SFormdelete.php?UserID=" . $row['userid'] . ">Delete</a>"; //Create a delete link that replaces old id with new id in another php page,UserID is to take the current id before deletion and store it for deletion
+                 echo "<a href=SForm_delete.php?UserID=" . $row['userid'] . ">Delete</a>"; //Create a delete link that replaces old id with new id in another php page,UserID is to take the current id before deletion and store it for deletion
+                 echo "</td>";
+                 echo "<td>";
+                 echo "<a href=SForm_update.php?UserID=" . $row['userid'] . ">Update</a>";
                  echo "</td>";
             echo "</tr>";
         }

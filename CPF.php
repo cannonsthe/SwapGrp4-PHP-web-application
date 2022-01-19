@@ -23,47 +23,70 @@
 
     <div class="container">
         <h1 style="text-align:center;font-family:arial;font-size:35;margin-bottom:0px;">CPF Contributions</h1>
+        <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
+            <a href="cpf_create.php">
+            <input class="button" type="button" value="Add CPF record" /></a>
+            <a href="cpf_update.php">
+            <input class="button" type="button" value="Edit a CPF record" /></a>
+            <a href="cpf_delete.php">
+            <input class="button" type="button" value="Delete a CPF record" /></a>
+        </form>
         <div style="float:left;display:inline-block;">
             <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:340px;margin-bottom:2px;">Contribution History</h2>
             <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:155px;margin-bottom:2px;">Account Balance</h2>
         </div> 
+        
         <div style="float:left;">
-          
-            <table class="borders" style="margin-left:290px;float:left;">
-                <tr>
-                    <td class="data2">Employee Name</td> 
-                    <td class="data">Larry</td>
-                </tr>
+        <table>
+            <tr>
+                <td>
 
-                <tr>
-                    <td class="data2">Paid on</td> 
-                    <td class="data">1st Dec 2021</td>
-              
-                </tr>
+        <?php
+            include 'connect.php';
 
-                <tr>
-                    <td class="data2">Month</td> 
-                    <td class="data">October</td>
-                </tr>
+        
 
-                <tr>
-                    <td class="data2">Amount</td> 
-                    <td class="data">$700 SGD</td>
-                </tr>
-            </table>
+            $stmt = $conn->prepare("SELECT fname,datepaid,month,amount FROM swaprj.cpf");
+            $res = $stmt->execute();
+            $stmt->bind_result($rfname,$rdatepaid,$rmonth,$ramount);
+            $stmt->store_result();
             
-            <table class="border" style="display:inline-block;margin-left:25px;">
-                <tr>
-                    <td class="data2">Ordinary Account</td> 
-                    <td class="data">$10,752 SGD</td>
-                </tr>
+            while($stmt->fetch()){
+                echo "<table class='borders' style='margin-left:290px;'><br>";
+                echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$rfname."</td></tr><tr><td class='data2'>"."Paid On"."</td><td class='data'>".$rdatepaid."</td></tr><tr><td class='data2'>"."Month"."</td><td class='data'>".$rmonth."</td></tr><tr><td class='data2'>"."Amount"."</td><td class='data'>".$ramount."</td></tr>";
+                echo "</table>";
+                
+            }
+            
+        ?>
+        </td>
+        <td>
+       
+        <?php
+            include 'connect.php';
 
-                <tr>
-                    <td class="data2">Special Account</td> 
-                    <td class="data">$734.65 SGD</td>
-                </tr>
-            </table>
+            $stmt = $conn->prepare("SELECT fname,cpfoa,cpfsa,cpfms FROM swaprj.user_information");
+            $res = $stmt->execute();
+            $stmt->bind_result($rfname,$rcpfoa,$rcpfsa,$rcpfms);
+            $stmt->store_result();
+
+            while($stmt->fetch()){
+                echo "<table class='borders' style='display:flex;margin-left:20px;'><br>";
+                echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$rfname."</td></tr><tr><td class='data2'>"."Ordinary Account"."</td><td class='data'>".$rcpfoa."</td></tr><tr><td class='data2'>"."Special Account"."</td><td class='data'>".$rcpfsa."</td></tr><tr><td class='data2'>"."Medishield"."</td><td class='data'>".$rcpfms."</td></tr>";
+                echo "</table>";
+            }
+        
+        ?>
+        
+        </td>
+        </tr>
+        </table>
+
+        
+        
+                
         </div>
+        
     </div>
 </body>
 </html>

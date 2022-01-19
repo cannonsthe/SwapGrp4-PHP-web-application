@@ -23,35 +23,23 @@
 
     <strong><p style="font-size:40px;margin-left:36%;">Employee Information</p><strong>
 
-    <div class="container">
-        <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
-        <form>
-            <strong><label for="name" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Full Name</label></strong>
-            <input type="text" disabled class="form-control" id="Full Name">
-            </br>
-            <strong><label for="password" style="margin: 5px auto 0px auto;font-size: 20px;">Password</label></strong>
-            <input type="text" disabled class="form-control" id="Password" >
-            </br>
-            <strong><label for="email" style="margin: 5px auto 0px auto;font-size: 20px;">Email</label></strong>
-            <input type="text" disabled class="form-control" id="Email" >
-            </br>
-            <strong><label for="department" style="margin: 5px auto 0px auto;font-size: 20px;">Department</label></strong>
-            <input type="text" disabled class="form-control" id="Departmen" >
-            </br>
-            <strong><label for="position" style="margin: 5px auto 0px auto;font-size: 20px;">Position</label></strong>
-            <input type="text" disabled class="form-control" id="Position" >
-            </br>
-            <strong><label for="accountbank" style="margin: 5px auto 0px auto;font-size: 20px;">Account Bank</label></strong>
-            <input type="text" disabled class="form-control" id="Account Bank" >
-            </br>
-            <strong><label for="accountnumber" style="margin: 5px auto 0px auto;font-size: 20px;">Account Number</label></strong>
-            <input type="text" disabled class="form-control" id="Account Number" >
-            
-        </form>
-    </div>
+    <?php
     
+        include 'connect.php';
 
+    
+        
+        $stmt = $conn->prepare("SELECT * FROM swaprj.user_information");
+        $res = $stmt->execute();
+        $stmt->bind_result($userid,$fname,$w_email,$department,$dateregistered,$position,$password,$bankname,$bankaccount,$cpfoa,$cpfsa,$cpfms,$p_email);
+        $stmt->store_result();
+        echo "<table border='1'>";
+        echo "<tr><th>"."User ID"."</th><th>"."Full Name"."</th><th>"."Work Email"."</th><th>"."Department"."</th><th>"."Date Registered"."</th><th>"."Position"."</th><th>"."Password"."</th><th>"."Bank Name"."</th><th>"."Bank Account"."</th><th>"."CPF Ordinary Account"."</th><th>"."CPF Special Account"."</th><th>"."CPF Medishield"."</th><th>"."Personal Email"."</th></tr>";
+        while($stmt->fetch()){
+            echo "<tr><td>".$userid."</td><td>".$fname."</td><td>".$w_email."</td><td>".$department."</td><td>".$dateregistered."</td><td>".$position."</td><td>".$password."</td><td>".$bankname."</td><td>".$bankaccount."</td><td>".$cpfoa."</td><td>".$cpfsa."</td><td>".$cpfms."</td><td>".$p_email."</td></tr>";
+        }
+        echo "</table>";
 
-
+    ?>
 </body>
 </html>

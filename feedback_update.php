@@ -10,8 +10,8 @@ $email = $_REQUEST['email'];
 $subject = $_REQUEST['subject'];
 $userid = $_REQUEST['userid']
 
-$query->bind_param('ssss', $feedback, $email, $subject, $userid); //bind the parameters
-if ($query->execute()){
+$stmt->bind_param('sssi', $feedback, $email, $subject, $userid); //bind the parameters
+if ($stmt->execute()){
  echo "Query executed.";
 }else{
  echo "Error executing query.";

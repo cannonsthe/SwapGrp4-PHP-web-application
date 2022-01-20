@@ -3,6 +3,7 @@ $con = mysqli_connect("localhost", "root", "", "swaprj"); //connect to database
 if (!$con) {
     die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
+include("connect.php");
 
 $at = $_REQUEST['actiontype'];
 echo $at;

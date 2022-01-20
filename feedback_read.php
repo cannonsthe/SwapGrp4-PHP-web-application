@@ -28,10 +28,6 @@
     <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
             <a href="feedback.php">
             <input class="button" type="button" value="Add Feedback" /></a>
-            <a href="feedback_update.php">
-            <input class="button" type="button" value="Edit a Feedback" /></a>
-            <a href="feedback_delete.php">
-            <input class="button" type="button" value="Delete a feedback" /></a>
         </form>
 
 <?php
@@ -47,6 +43,11 @@ while($stmt->fetch()){
     echo "<table class='borders' style='display:flex;'><br>";
     echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$fname."</td></tr><tr><td class='data2'>"."Subject"."</td><td class='data'>".$subject."</td></tr><tr><td class='data2'>"."Email"."</td><td class='data'>".$email."</td></tr><tr><td class='data2'>"."Feedback"."</td><td class='data'>".$feedback."</td></tr><tr><td class='data2'>"."Department"."</td><td class='data'>".$department."</td></tr>";
     echo "</table>";
+    echo "<div style='text-align:right;margin-top:5px;margin-bottom:-10px;'>
+    <a href='feedback_update.php'>
+    <input class='button' type='button' value='Edit Feedback' /></a>
+    <a href='feedback_delete.php'>
+    <input class='button' type='button' value='Delete feedback' /></a></div>";
 //echo "<tr><td>".$feedbackid."</td><td>".$userid."</td><td>".$fname."</td><td>" .$subject."</td><td>" .$email."</td><td>" .$feedback."</td><td>" .$department. "</td></tr>";
     }
 

@@ -26,10 +26,7 @@
         <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
             <a href="cpf_create.php">
             <input class="button" type="button" value="Add CPF record" /></a>
-            <a href="cpf_update.php">
-            <input class="button" type="button" value="Edit a CPF record" /></a>
-            <a href="cpf_delete.php">
-            <input class="button" type="button" value="Delete a CPF record" /></a>
+            
         </form>
         <div style="float:left;display:inline-block;">
             <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:340px;margin-bottom:2px;">Contribution History</h2>
@@ -52,9 +49,11 @@
             $stmt->store_result();
             
             while($stmt->fetch()){
-                echo "<table class='borders' style='margin-left:290px;'><br>";
+                echo "<div style='margin-left:250px;'>";
+                echo "<table class='borders' style='display:inline-block;'><br>";
                 echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$rfname."</td></tr><tr><td class='data2'>"."Paid On"."</td><td class='data'>".$rdatepaid."</td></tr><tr><td class='data2'>"."Month"."</td><td class='data'>".$rmonth."</td></tr><tr><td class='data2'>"."Amount"."</td><td class='data'>".$ramount."</td></tr>";
                 echo "</table>";
+                echo "</div>";
                 
             }
             
@@ -69,12 +68,22 @@
             $res = $stmt->execute();
             $stmt->bind_result($rfname,$rcpfoa,$rcpfsa,$rcpfms);
             $stmt->store_result();
-
+            
             while($stmt->fetch()){
-                echo "<table class='borders' style='display:flex;margin-left:20px;'><br>";
+                echo "<table class='borders' style='display:inline-block;margin-left:20px;'><br><br>";
                 echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$rfname."</td></tr><tr><td class='data2'>"."Ordinary Account"."</td><td class='data'>".$rcpfoa."</td></tr><tr><td class='data2'>"."Special Account"."</td><td class='data'>".$rcpfsa."</td></tr><tr><td class='data2'>"."Medishield"."</td><td class='data'>".$rcpfms."</td></tr>";
+                
                 echo "</table>";
+                
+                echo "<div style='float:right;margin-left:5px;'><a href='cpf_update.php'>
+                <input class='button' type='button' value='Edit CPF Record' /></a><br><br>
+                <a href='cpf_delete.php'>
+                <input class='button' type='button' value='Delete CPF record' /></a>
+                </div>";
+                
             }
+
+            
         
         ?>
         

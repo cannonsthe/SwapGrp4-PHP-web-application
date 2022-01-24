@@ -1,26 +1,29 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "swaprj"); //connect to database
+/* $con = mysqli_connect("localhost", "root", "", "swaprj"); //connect to database
 if (!$con) {
     die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
-}
-include("connect.php");
-
-$at = $_REQUEST['actiontype'];
+} */
+include('connect.php');
+include('Expenses_function.php');
+$at = $_POST['actiontype'];
 echo $at;
-$year = $_REQUEST['year'];
-$type = $_REQUEST['type'];
-$amount = $_REQUEST['amount'];
-$expenseid = $_REQUEST['expenseid'];
-$refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Updated');window.location.href='/Expenses.php';</script> ";
+$year = $_POST['year'];
+$type = $_POST['type'];
+$amount = $_POST['amount'];
+$expenseid = $_POST['expenseid'];
+$refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Executed');window.location.href='/Expenses.php';</script> ";
 
 if ($at == "add") {
     $query = $con->prepare("INSERT INTO `expenses` (`year`,`type`,`amount`) VALUES
     (?,?,?)");
     $query->bind_param('sss', $year, $type, $amount); //bind the parameters
-    if ($query->execute()) { //execute query
+    $errors = validation($at);
+    if ($errors == 0) {
+        $query->execute(); //execute query
         echo ($refresh);
-    } else {
-        echo "Error executing query.";
+    }
+    else{
+        echo "Error!";
     }
     $query->close();
 }
@@ -28,6 +31,7 @@ if ($at == "add") {
 if ($at == "update") {
     $query = $con->prepare("UPDATE expenses SET year=?, type=?, amount=? WHERE expenseid=?");
     $query->bind_param('sssi', $year, $type, $amount, $expenseid); //bind the parameters
+    validation($at);
     if ($query->execute()) {
         echo ($refresh);
     } else {

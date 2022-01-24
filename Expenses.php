@@ -12,20 +12,9 @@
 
 <body>
     <?php
-    function debug_to_console($data)
-    {
-        $output = $data;
-        if (is_array($output))
-            $output = implode(',', $output);
-
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
     error_reporting(1);
     ini_set('display_errors', 1);
-    $con = mysqli_connect("localhost", "root", "", "swaprj"); //connect to database
-    if (!$con) {
-        die('Could not connect: ' . mysqli_connect_errno()); //return error is
-    }
+    include('connect.php');
     ?>
     <div class="navbar">
         <a href="#" class="logo">FRecords</a>
@@ -39,7 +28,7 @@
         </div>
     </div>
     <br><br>
-    <form action="/Expenses.php" class="center" method="GET">
+    <form action="/Expenses.php" class="center" method="POST">
         <label for="year1" class="center">Choose a year to display expenses for:</label>
         <select name="year" id="year">
             <option value="All" name="">All</option>
@@ -53,9 +42,7 @@
         <input type="submit" value="Retrieve" name="get1" id="get1">
 
         <?php
-
-        $year = $_REQUEST['year']; #########Test Retrieve
-        echo $year;
+        $year = $_POST['year']; #########Test Retrieve
         if ($year == null) {
             $year = 'All';
         };
@@ -68,7 +55,6 @@
             "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount |</t
             h></tr>";
             while ($query->fetch()) {
-                //do something
                 echo
                 "<th>$expenseid</th><th>$year</th><th>$type</th><th>$amount</t
             h></tr>";
@@ -96,7 +82,7 @@
         ?>
     </form>
     <br><br><br><br>
-    <form action="/Expenses_Crud.php">
+    <form action="/Expenses_Crud.php" method="POST">
         <fieldset>
             <legend>Form:</legend>
             <input type="radio" value="add" name="actiontype">Add<br>

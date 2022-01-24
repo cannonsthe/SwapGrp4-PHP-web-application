@@ -9,4 +9,9 @@ echo "Unable to connect";
 }else
     	echo "";
 
+
+$con = new mysqli($dbhost,$dbuser,$dbpwd,$dbname);
+if($con->errno){
+echo "Unable to connect";
+}
 ?>

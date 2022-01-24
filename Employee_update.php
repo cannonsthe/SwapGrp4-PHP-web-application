@@ -1,23 +1,27 @@
-<?php
-$con = mysqli_connect("localhost","root","","swaprj"); //connect to database
-if (!$con){
-    die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee Information</title>
+    <link rel="stylesheet" href="Employee.css">
+</head>
+<body>
 
-$query= $con->prepare("UPDATE user SET fname=?,password=?,email=?,department=?,position=?,bankname=?,accountnumber=? WHERE userid=?");
-$fname = $_REQUEST['fname'];
-$email = $_REQUEST['email'];
-$department = $_REQUEST['department'];
-$position = $_REQUEST['position'];
-$password = $_REQUEST['password'];
-$bankname = $_REQUEST['bankname'];
-$accountnumber = $_REQUEST['accountnumber'];
-$userid = $_REQUEST['userid'];
+    <div class="navbar">
+       <a href="#" class="logo">FRecords</a>
+       <div class="sections">
+           <a href="#" class="active">Employee Information</a>
+           <a href="Salary.php">Employee Salary</a>
+           <a href="Expenses.php" > General Expenses</a>
+           <a href="CPF.php" >CPF Contributions</a>
+           <a href="feedback.php">Feedback</a>
+           <a href="index.php">Logout</a>
+       </div>
+    </div>
 
-$query->bind_param('sssssss', $fname, $password, $email, $department, $position, $bankname, $accountnumber, $userid); //bind the parameters
-if ($query->execute()){
- echo "Query executed.";
-}else{
- echo "Error executing query.";
-}
-?>
+    <strong><p style="font-size:40px;margin-left:33%;">Employee Information</p><strong>
+
+</body>
+</html>

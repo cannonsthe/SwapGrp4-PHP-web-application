@@ -24,7 +24,7 @@
     <strong><p style="font-size:40px;margin-left:33%;">Add Employee Information</p><strong>
     
     <div class="container">
-        <form action="Employee_create.php" method="post">
+        <form action="Employee_create2.php" method="post">
             <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
             </br>    
             <strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong>
@@ -38,6 +38,9 @@
             </br>
             <strong><label for="department" style="margin: 5px auto 0px auto;font-size: 20px;">Department</label></strong>
             <input type="text" class="form-control" name="department" >
+            </br>
+            <strong><label for="dateregistered" style="margin: 5px auto 0px auto;font-size: 20px;">Date Registered</label></strong>
+            <input type="text" class="form-control" name="dateregistered" >
             </br>
             <strong><label for="position" style="margin: 5px auto 0px auto;font-size: 20px;">Position</label></strong>
             <input type="text" class="form-control" name="position" >

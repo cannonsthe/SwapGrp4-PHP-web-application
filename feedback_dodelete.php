@@ -22,29 +22,26 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:33%;">Delete Feedback</p><strong>
-    
     <?php
 
         include 'connect.php';
-        $feedbackid=$_POST["feedbackid"];
-        $userid=$_POST["userid"];
-        $fname=$_POST["fname"];
-        $subject=$_POST["subject"];
-        $email=$_POST["email"];
-        $department=$_POST["department"];
-        
 
-        echo "Are you going to delete this user information? ".$feedbackid;
-        echo "<form action='feedback_dodelete.php' method='post'>";
-        echo "<input type='hidden' name='feedbackid' value='".$feedbackid."'>";
-        echo "<input type='submit' name='feedback_dodelete' value='Confirm'/>";
-        echo "</form>";
-    ?>
+    $feedbackid=$_POST["feedbackid"];
 
-    <br>
-    <br>
-     <a href="feedback.php">Return</a>
-     <br>
+$stmt = $conn->prepare("DELETE FROM swaprj.feedback WHERE feedbackid=?");
+$stmt->bind_param("i", $feedbackid);
+$res = $stmt->execute();
+if($res){
+    echo "Delete successfully";
+}else
+    echo "Unable to delete";
+?>
+
+<br>
+<br>
+<a href="feedback.php">Return to Feedback</a>
+<br>
+
+
 </body>
 </html>

@@ -7,6 +7,7 @@
     <title>Feedback</title>
     <link rel="stylesheet" href="HomePage.css">
     <link rel="stylesheet" href="FeedbackPage.css">
+
 </head>
 
 <body>
@@ -22,32 +23,36 @@
        </div>
     </div>
     <br><br>
-    <div class="container">
-  <form action="feedback_create.php" method="post">
+    <div class="container2">
+    <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
+            <a href="feedback_create.php">
+            <input class="button" type="button" value="Add Feedback" /></a>
+        </form>
 
-    
-    <label for="fname">Name</label>
-    <input type="text" name="fname">
-    <!---id="fname" placeholder="Your name"--->
-    <label for="subject">Subject</label>
-    <input type="text" name="subject">
-    <!---id="subject" placeholder="Subject"--->
-    <label for="email">Email</label>
-    <input type="text" name="email">
-    <!---id="email" placeholder="Your email"--->
-    <label for="feedback">Feedback</label>
-    <textarea style="height:200px" name="feedback"></textarea>
-    <!---id="feedback" placeholder="Feedback"--->
-    <label for="department">Department</label>
-    <input type="text" name="department">
-    
-    
-    
+<?php
 
-    <input type="submit" value="Submit">
+include 'connect.php';
 
-  </form>
+$stmt = $conn->prepare("SELECT userid,feedbackid,fname,subject,email,feedback,department FROM feedback");
+$res = $stmt->execute();
+$stmt->bind_result($userid,$feedbackid,$fname,$subject,$email, $feedback, $department);
+$stmt->store_result();
+//echo "<table border='1'>";
+//echo "<tr><td>"."Product ID"."</td><td>"."Product Name"."</td><td>"."Stock Amount"."</td><td>" ."Seller Contact"."</td><td>" ."Created Data". "</td></tr>";
+while($stmt->fetch()){
+    echo "<table class='borders' style='display:flex;'><br>";
+    echo "<tr><td class='data2'>"."User ID"."</td><td class='data'>".$userid."</td></tr><tr><td class='data2'>"."Feedback ID"."</td><td class='data'>".$feedbackid."</td></tr><tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$fname."</td></tr><tr><td class='data2'>"."Subject"."</td><td class='data'>".$subject."</td></tr><tr><td class='data2'>"."Email"."</td><td class='data'>".$email."</td></tr><tr><td class='data2'>"."Feedback"."</td><td class='data'>".$feedback."</td></tr><tr><td class='data2'>"."Department"."</td><td class='data'>".$department."</td></tr>";
+    echo "</table>";
+    echo "<div style='text-align:right;margin-top:5px;margin-bottom:-10px;'>
+    <a href='feedback_update.php'>
+    <input class='button' type='button' value='Edit Feedback' /></a>
+    <a href='feedback_delete.php'>
+    <input class='button' type='button' value='Delete feedback' /></a></div>";
+//echo "<tr><td>".$userid."</td><td>".$feedbackid."</td><td>".$fname."</td><td>" .$subject."</td><td>" .$email."</td><td>" .$feedback."</td><td>" .$department. "</td></tr>";
+    }
+
+?>
+
 </div>
-
 </body>
 </html>

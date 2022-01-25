@@ -1,35 +1,62 @@
-<?php
-include 'connect.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="FeedbackPage.css">
+</head>
 
-$feedbackid = $_POST['feedbackid'];
-$userid = $_POST['userid'];
-$fname = $_POST['fname'];
-$subject = $_POST['subject'];
-$email = $_POST['email'];
-$feedback = $_POST['feedback'];
-$department = $_POST['department'];
+<body>
+    <div class="navbar">
+       <a href="#" class="logo">FRecords</a>
+       <div class="sections">
+       <a href="Employee.php">Employee Information</a>
+           <a href="Salary.php">Employee Salary</a>
+           <a href="Expenses.php" > General Expenses</a>
+           <a href="CPF.php" >CPF Contributions</a>
+           <a href="feedback.php" class="active">Feedback</a>
+           <a href="index.php">Logout</a>
+       </div>
+    </div>
+    <br><br>
+    <div class="container">
+  <form action="feedback_create2.php" method="post">
+
+    <label for="fname">User ID</label>
+    <input type="text" name="userid">  
+
+    <label for="fname">Feedback ID</label>
+    <input type="text" name="feedbackid">
+
+    <label for="fname">Name</label>
+    <input type="text" name="fname">
+    <!---id="fname" placeholder="Your name"--->
+    <label for="subject">Subject</label>
+    <input type="text" name="subject">
+    <!---id="subject" placeholder="Subject"--->
+    <label for="email">Email</label>
+    <input type="text" name="email">
+    <!---id="email" placeholder="Your email"--->
+    <label for="feedback">Feedback</label>
+    <textarea style="height:200px" name="feedback"></textarea>
+    <!---id="feedback" placeholder="Feedback"--->
+    <label for="department">Department</label>
+    <input type="text" name="department">
+    
+    
+    
+    <input type="submit" value="Submit">
 
 
 
-//$method = $_SERVER['REQUEST_METHOD'];
+  </form>
+</div>
 
-//$query="INSERT INTO swaprj.cpf (fname,email,subject,feedback)" .
-     //"VALUES (?, ?, ?, ?);";
-     //$result=mysqli_query($con,$query);
-     //if(!$result){
-        //echo ("INSERT Failed<br>");
-        //echo mysqli_error($con). "<br>";
-     //}
-     //else{
-         //echo "INSERT OK<br>";
-     //}
+</body>
+</html>
 
-     $stmt = $conn->prepare("INSERT into feedback VALUES(?,?,?,?,?,?,?)");
-     $stmt->bind_param("iisssss", $feedbackid,$userid, $fname, $subject, $email, $feedback, $department);
-     $res = $stmt->execute();
-     if($res){
-         echo "Insert successful";
-     }else
-        echo "Unable to insert";
 
-?>
+

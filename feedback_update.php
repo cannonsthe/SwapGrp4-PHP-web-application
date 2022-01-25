@@ -29,15 +29,15 @@
         include 'connect.php';
 
         //Query swaprj database and select data from salary table
-        $query="SELECT * FROM swaprj.feedback WHERE userid=" . $_GET['userid']; 
+        $query="SELECT feedbackid, userid, fname, subject, email, feedback, department FROM swaprj.feedback WHERE feedbackid=" . $_GET['feedbackid'];
         $result=mysqli_query($conn, $query);
 
         //Getting the rows of data from the salary table
         $nrows=mysqli_num_rows($result); 
         if ($nrows>0) {                       //Create variables for the data in the salary table
             $row=mysqli_fetch_assoc($result);
-            $userid=$row['userid'];
             $feedbackid=$row['feedbackid'];
+            $userid=$row['userid'];
             $fname=$row['fname'];
             $subject=$row['subject'];
             $email=$row['email'];
@@ -50,14 +50,13 @@
         }
     ?>
     <div class="container">
-    <form action="feedback_update2.php" method="get">
-
-
-<label for="userid">User ID</label>
-<input type="text" name="userid" value="<?php echo $_GET['userid']; ?>">
+    <form action="feedback_update2.php" method="post">
 
 <label for="feedbackid">Feedback ID</label>
-<input type="text" name="feedbackid" value="<?php echo $feedbackid; ?>">
+<input type="text" name="feedbackid" value="<?php echo $_GET['feedbackid']; ?>">
+
+<label for="userid">User ID</label>
+<input type="text" name="userid" value="<?php echo $userid; ?>">
 
 <label for="fname">Name</label>
 <input type="text" name="fname" value="<?php echo $fname; ?>">

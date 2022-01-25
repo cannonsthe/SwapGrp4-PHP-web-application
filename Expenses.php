@@ -13,8 +13,8 @@
 <body>
     <?php
     error_reporting(1);
-    ini_set('display_errors', 1);
-    include('connect.php');
+    ini_set ('display_errors', 1);
+    include ('connect.php');
     ?>
     <div class="navbar">
         <a href="#" class="logo">FRecords</a>
@@ -40,7 +40,6 @@
         </select>
         <br><br>
         <input type="submit" value="Retrieve" name="get1" id="get1">
-
         <?php
         $year = $_POST['year']; #########Test Retrieve
         if ($year == null) {
@@ -52,7 +51,7 @@
             $query->bind_result($expenseid, $year, $type, $amount);
             echo "<table class='salary'><tr>";
             echo
-            "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount |</t
+            "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount($) |</t
             h></tr>";
             while ($query->fetch()) {
                 echo
@@ -67,7 +66,7 @@
             $query->bind_result($expenseid, $year, $type, $amount);
             echo "<table class='salary'><tr>";
             echo
-            "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount |</t
+            "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount($) |</t
             h></tr>";
             while ($query->fetch()) {
                 //do something
@@ -77,25 +76,23 @@
             }
             echo "</table>";
         }
-
-
         ?>
     </form>
     <br><br><br><br>
     <form action="/Expenses_Crud.php" method="POST">
         <fieldset>
             <legend>Form:</legend>
-            <input type="radio" value="add" name="actiontype">Add<br>
-            <input type="radio" value="update" name="actiontype">Update<br>
-            <input type="radio" value="delete" name="actiontype">Delete <br>
+            <input type="radio" value="add" name="actiontype" >Add<br>
+            <input type="radio" value="update" name="actiontype" >Update<br>
+            <input type="radio" value="delete" name="actiontype" >Delete <br>
             <label for="year">Year of Expense:</label>
-            <input type="text" id="year" name="year"><br><br>
+            <input type="text" id="year" name="year" ><br><br>
             <label for="type">Type of Expense:</label>
-            <input type="text" id="type" name="type"><br><br>
+            <input type="text" id="type" name="type" ><br><br>
             <label for="amount">Amount:</label>
-            <input type="text" id="amount" name="amount"><br><br>
+            <input type="text" id="amount" name="amount" ><br><br>
             <label for="expenseid">Expense ID (Only Use For Updating or Deleting!):</label>
-            <input type="text" id="expenseid" name="expenseid"><br><br>
+            <input type="text" id="expenseid" name="expenseid" step="1"><br><br>
             <input type="submit" name="action" value="Do">
         </fieldset>
     </form>

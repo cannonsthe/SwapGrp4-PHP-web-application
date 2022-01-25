@@ -28,7 +28,7 @@
         include 'connect.php';
 
         //Query swaprj database and select data from salary table
-        $query="SELECT userid, fname, w_email, department, dateregistered, position, password, bankname, bankaccount, cpfoa, cpfsa, cpfms, p_email FROM swaprj.user_information ". "WHERE userid=" . $_GET['userid'];
+        $query="SELECT userid, fname, w_email, department, dateregistered, position, password, bankname, bankaccount, cpfoa, cpfsa, cpfms, p_email FROM swaprj.user_information WHERE userid=" . $_GET['UserID']; 
         $result=mysqli_query($conn, $query);
 
         //Getting the rows of data from the salary table
@@ -54,12 +54,12 @@
         }
     ?>
 
-<div class="container">
+    <div class="container">
         <form action="Employee_update2.php" method="post">
             <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
             </br>    
             <strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong>
-            <input type="text" class="form-control" name="userid" value="<?php echo $_GET['userid']; ?>">
+            <input type="text" class="form-control" name="userid" value="<?php echo $_GET['UserID']; ?>">
             </br>
             <strong><label for="fname" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Full Name</label></strong>
             <input type="text" class="form-control" name="fname" value="<?php echo $fname; ?>">
@@ -89,10 +89,10 @@
             <input type="text" class="form-control" name="cpfoa" value="<?php echo $cpfoa; ?>">
             </br>
             <strong><label for="cpfsa" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">CPF Special Account</label></strong>
-            <input type="text" class="form-control" name="cpfsa" <?php echo $cpfsa; ?>>
+            <input type="text" class="form-control" name="cpfsa" value="<?php echo $cpfsa; ?>">
             </br>
             <strong><label for="cpfms" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">CPF Medishield Account</label></strong>
-            <input type="text" class="form-control" name="cpfms" <?php echo $cpfms; ?>>
+            <input type="text" class="form-control" name="cpfms" value="<?php echo $cpfms; ?>">
             </br>
             <strong><label for="p_email" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Personal Email</label></strong>
             <input type="text" class="form-control" name="p_email" value="<?php echo $p_email; ?>">

@@ -51,13 +51,12 @@
 <?php
 include 'connect.php';
 
-$stmt = $conn->prepare("UPDATE feedback set email=?, subject=?, feedback=?, department=? WHERE fname=? ");
-            		$stmt->bind_param("sssss", $email, $subject, $sfeedback, $department, $fname);
-            		$res = $stmt->execute();
-            		
-                		echo "<form action='feedback_create.php' method='get'>";
-                        echo "<label for='fname'>Name</label>
-                        <input type='text' name='name'>".$fname
+$stmt = $conn->prepare("UPDATE feedback set fname=?, email=?, subject=?, feedback=?, department=? WHERE userid=? ");
+$stmt->bind_param("sssss", $email, $subject, $sfeedback, $department, $fname);
+$res = $stmt->execute();
+    echo "<form action='feedback_create.php' method='get'>";
+    echo "<label for='fname'>Name</label>
+    <input type='text' name='name'>".$fname
                         
                         
             		

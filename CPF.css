@@ -116,4 +116,9 @@ input[type=text], select, textarea {
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
   }
+  label{
+    font-family: Montserrat,sans-serif;
+    font-weight: bold;
+    font-size: large;
+  }
   

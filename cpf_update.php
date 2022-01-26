@@ -20,7 +20,7 @@
            <a href="index.php">Logout</a>
        </div>
     </div>
-    <div class="container">
+    <div class="container2" style="margin-top:25px;">
     <?php
 
         include 'connect.php';

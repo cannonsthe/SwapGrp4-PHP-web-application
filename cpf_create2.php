@@ -36,9 +36,14 @@
         $stmt->bind_param("issss", $cpfid, $fname, $datepaid, $month, $amount);
         $res = $stmt->execute();
         if($res){
-            echo "Insert successfully";
+            echo "<strong><h1 style='text-align:center;'>";
+            echo "Successfully added CPF record</h1></strong>";
         }else
             echo "Unable to insert";
     ?>
+    <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
+        <a href='CPF.php'>
+        <input class='button' type='button' value='Return to CPF Contributions' /></a>
+    </form>
 </body>
 </html>

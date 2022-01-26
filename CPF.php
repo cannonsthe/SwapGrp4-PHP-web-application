@@ -29,7 +29,7 @@
             
         </form>
         <div style="float:left;display:inline-block;">
-            <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:340px;margin-bottom:2px;">Contribution History</h2>
+            <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-bottom:2px;">Contribution History</h2>
             <h2 style="float:left;font-family:arial;font-size:18px;margin-top:5px;margin-left:155px;margin-bottom:2px;">Account Balance</h2>
         </div> 
         
@@ -49,7 +49,7 @@
             $stmt->store_result();
             
             while($stmt->fetch()){
-                echo "<div style='margin-left:250px;'>";
+                echo "<div style=''>";
                 echo "<table class='borders' style='display:inline-block;'><br>";
                 echo "<tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$rfname."</td></tr><tr><td class='data2'>"."Paid On"."</td><td class='data'>".$rdatepaid."</td></tr><tr><td class='data2'>"."Month"."</td><td class='data'>".$rmonth."</td></tr><tr><td class='data2'>"."Amount"."</td><td class='data'>".$ramount."</td></tr>";
                 echo "</table>";

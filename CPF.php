@@ -64,9 +64,9 @@
         <?php
             include 'connect.php';
 
-            $stmt = $conn->prepare("SELECT fname,cpfoa,cpfsa,cpfms FROM swaprj.cpf");
+            $stmt = $conn->prepare("SELECT cpfid,fname,cpfoa,cpfsa,cpfms FROM swaprj.cpf");
             $res = $stmt->execute();
-            $stmt->bind_result($rfname,$rcpfoa,$rcpfsa,$rcpfms);
+            $stmt->bind_result($rcpfid,$rfname,$rcpfoa,$rcpfsa,$rcpfms);
             $stmt->store_result();
             
             while($stmt->fetch()){
@@ -77,7 +77,7 @@
                 
                 echo "<div style='float:right;margin-left:5px;'><a href='cpf_update.php'>
                 <input class='button' type='button' value='Edit CPF Record' /></a><br><br>
-                <a href='cpf_delete.php'>
+                <a href='cpf_delete.php?cpfID=" . $rcpfid . "'>
                 <input class='button' type='button' value='Delete CPF record' /></a>
                 </div>";
                 

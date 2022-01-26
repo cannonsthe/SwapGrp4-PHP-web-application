@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>Update Feedback</title>
     <link rel="stylesheet" href="HomePage.css">
     <link rel="stylesheet" href="FeedbackPage.css">
 
@@ -29,7 +29,7 @@
         include 'connect.php';
 
         //Query swaprj database and select data from salary table
-        $query="SELECT feedbackid, userid, fname, subject, email, feedback, department FROM swaprj.feedback WHERE feedbackid=" . $_GET['feedbackid'];
+        $query="SELECT feedbackid, fname, subject, email, feedback, department FROM feedback WHERE feedbackid=" . $_GET['FeedbackID'];
         $result=mysqli_query($conn, $query);
 
         //Getting the rows of data from the salary table
@@ -37,7 +37,6 @@
         if ($nrows>0) {                       //Create variables for the data in the salary table
             $row=mysqli_fetch_assoc($result);
             $feedbackid=$row['feedbackid'];
-            $userid=$row['userid'];
             $fname=$row['fname'];
             $subject=$row['subject'];
             $email=$row['email'];
@@ -50,35 +49,35 @@
         }
     ?>
     <div class="container">
-    <form action="feedback_update2.php" method="post">
+        <form action="feedback_update2.php" method="post">
 
-<label for="feedbackid">Feedback ID</label>
-<input type="text" name="feedbackid" value="<?php echo $_GET['feedbackid']; ?>">
+        
 
-<label for="userid">User ID</label>
-<input type="text" name="userid" value="<?php echo $userid; ?>">
+            <label for="feedbackid">Feedback ID</label>
+            <input type="text" name="feedbackid" value="<?php echo $_GET['FeedbackID']; ?>">
 
-<label for="fname">Name</label>
-<input type="text" name="fname" value="<?php echo $fname; ?>">
-<!---id="fname" placeholder="Your name"--->
-<label for="subject">Subject</label>
-<input type="text" name="subject" value="<?php echo $subject; ?>">
-<!---id="subject" placeholder="Subject"--->
-<label for="email">Email</label>
-<input type="text" name="email" value="<?php echo $email; ?>">
-<!---id="email" placeholder="Your email"--->
-<label for="feedback">Feedback</label>
-<textarea style="height:200px" name="feedback" value="<?php echo $feedback; ?>"></textarea>
-<!---id="feedback" placeholder="Feedback"--->
-<label for="department">Department</label>
-<input type="text" name="department" value="<?php echo $department; ?>">
-
-
-
-
-<input type="submit" value="Update">
+            <label for="fname">Name</label>
+            <input type="text" name="fname" value="<?php echo $fname; ?>">
+            <!---id="fname" placeholder="Your name"--->
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" value="<?php echo $subject; ?>">
+            <!---id="subject" placeholder="Subject"--->
+            <label for="email">Email</label>
+            <input type="text" name="email" value="<?php echo $email; ?>">
+            <!---id="email" placeholder="Your email"--->
+            <label for="feedback">Feedback</label>
+            <textarea style="height:200px" name="feedback" value="<?php echo $feedback; ?>"></textarea>
+            <!---id="feedback" placeholder="Feedback"--->
+            <label for="department">Department</label>
+            <input type="text" name="department" value="<?php echo $department; ?>">
+            </br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
 
 
-</form>
+
+
+
 </body>
 </html>

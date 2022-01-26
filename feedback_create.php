@@ -25,8 +25,6 @@
     <div class="container">
   <form action="feedback_create2.php" method="post">
 
-    <label for="fname">User ID</label>
-    <input type="text" name="userid">  
 
     <label for="fname">Feedback ID</label>
     <input type="text" name="feedbackid">

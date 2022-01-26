@@ -27,7 +27,7 @@
     
 <?php
 
-$userid = $_POST['userid'];
+
 $feedbackid = $_POST['feedbackid'];
 $fname = $_POST['fname'];
 $subject = $_POST['subject'];
@@ -50,8 +50,8 @@ include 'connect.php';
          //echo "INSERT OK<br>";
      //}
 
-     $stmt = $conn->prepare("INSERT into feedback VALUES(?,?,?,?,?,?,?)");
-     $stmt->bind_param("iisssss", $userid, $feedbackid, $fname, $subject, $email, $feedback, $department);
+     $stmt = $conn->prepare("INSERT into feedback VALUES(?,?,?,?,?,?)");
+     $stmt->bind_param("isssss", $feedbackid, $fname, $subject, $email, $feedback, $department);
      $res = $stmt->execute();
      if($res){
          echo "<p style='text-align:center;'>Insert successful</p>";

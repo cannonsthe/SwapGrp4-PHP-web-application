@@ -28,7 +28,6 @@
 
         include 'connect.php';
         $feedbackid=$_POST["feedbackid"];
-        $userid=$_POST["userid"];
         $fname=$_POST["fname"];
         $subject=$_POST["subject"];
         $email=$_POST["email"];

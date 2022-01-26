@@ -20,22 +20,46 @@
            <a href="index.php">Logout</a>
        </div>
     </div>
-    <div class="container2" style="margin-top:25px;">
-        <form action="cpf_create2.php" method="post">
+    <div class="container">
+    <?php
 
+        include 'connect.php';
 
+        $query="SELECT cpfid,fname,datepaid,month,amount,cpfoa,cpfsa,cpfms FROM swaprj.cpf WHERE cpfid=" . $_GET['cpfID']; 
+        $result=mysqli_query($conn, $query);
+
+        //Getting the rows of data from the salary table
+        $nrows=mysqli_num_rows($result); 
+        if ($nrows>0) {                       //Create variables for the data in the salary table
+            $row=mysqli_fetch_assoc($result);
+            $cpfid=$row['cpfid'];
+            $fname=$row['fname'];
+            $datepaid=$row['datepaid'];
+            $month=$row['month'];
+            $amount=$row['amount'];
+            $cpfoa=$row['cpfoa'];
+            $cpfsa=$row['cpfsa'];
+            $cpfms=$row['cpfms'];
+        }
+        else{
+            echo "There are no records.<br>";
+        }
+        
             
-            <input type="hidden" name="cpfid">
-
+    ?>
+    <form action="cpf_doUpdate.php" method="post">
+            
+            <input type="hidden" name="cpfid" value="<?php echo $_GET['cpfID']; ?>">
+            
             <label for="fname">Full Name</label>
-            <input type="text" name="fname">
+            <input type="text" name="fname" value="<?php echo $fname; ?>">
     
             <label for="datepaid">Date Paid</label>
-            <input type="text" name="datepaid">
+            <input type="text" name="datepaid" value="<?php echo $datepaid; ?>">
     
             <label for="month">For Month</label>
             <select name="month">
-                <option></option>
+                <option><?php echo $month; ?></option>
                 <option>January</option>
                 <option>February</option>
                 <option>March</option>
@@ -51,24 +75,20 @@
             </select>
     
             <label for="amount">Amount</label>
-            <input type="text" name="amount">
+            <input type="text" name="amount" value="<?php echo $amount; ?>">
 
             <label for="cpfoa">Updated CPF Ordinary Account</label>
-            <input type="text" name="cpfoa">
+            <input type="text" name="cpfoa" value="<?php echo $cpfoa; ?>">
 
             <label for="cpfsa">Updated CPF Special Account</label>
-            <input type="text" name="cpfsa">
+            <input type="text" name="cpfsa" value="<?php echo $cpfsa; ?>">
 
             <label for="cpfms">Updated CPF Medishield Account</label>
-            <input type="text" name="cpfms">
-    
-    
-    
-            <input class="button" type="submit" value="Submit">
+            <input type="text" name="cpfms" value="<?php echo $cpfms; ?>">
 
-
-
+            <input class="button" type="submit"  value="Submit">
         </form>
+        
     </div>
 </body>
 </html>

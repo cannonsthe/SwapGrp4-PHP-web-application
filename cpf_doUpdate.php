@@ -20,12 +20,12 @@
            <a href="index.php">Logout</a>
        </div>
     </div>
-    <div class="container" style="margin-top:25px;">
+    <div class="container">
     <?php
 
         include 'connect.php';
 
-        $cpfid=$_POST['cpfid'];
+        
         $fname=$_POST['fname'];
         $datepaid=$_POST['datepaid'];
         $month=$_POST['month'];
@@ -33,20 +33,19 @@
         $cpfoa=$_POST['cpfoa'];
         $cpfsa=$_POST['cpfsa'];
         $cpfms=$_POST['cpfms'];
+        $cpfid=$_POST['cpfid'];
 
+        $stmt = $conn->prepare("UPDATE swaprj.cpf SET fname=?, datepaid=?, month=?, amount=?, cpfoa=?, cpfsa=?, cpfms=? WHERE cpfid=?");
+            		$stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
+            		$res = $stmt->execute();
+            		if($res){
+                		echo "Update successful";
+            		}else
+                		echo "Unable to update";
 
-        $stmt = $conn->prepare("INSERT into swaprj.cpf VALUES(?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("isssssss", $cpfid, $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms);
-        $res = $stmt->execute();
-        if($res){
-            echo "<strong><h1 style='text-align:center;'>";
-            echo "Successfully added CPF record</h1></strong>";
-        }else
-            echo "Unable to insert";
+            
     ?>
-    <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
-        <a href='CPF.php'>
-        <input class='button' type='button' value='Return to CPF Contributions' /></a>
-    </form>
+        
+    </div>
 </body>
 </html>

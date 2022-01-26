@@ -75,7 +75,7 @@
                 
                 echo "</table>";
                 
-                echo "<div style='float:right;margin-left:5px;'><a href='cpf_update.php'>
+                echo "<div style='float:right;margin-left:5px;'><a href='cpf_update.php?cpfID=" . $rcpfid . "'>
                 <input class='button' type='button' value='Edit CPF Record' /></a><br><br>
                 <a href='cpf_delete.php?cpfID=" . $rcpfid . "'>
                 <input class='button' type='button' value='Delete CPF record' /></a>

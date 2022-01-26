@@ -23,21 +23,44 @@
     <?php
 
         include 'connect.php';
-
         $cpfid=$_POST['cpfid'];
-        $fname=$_POST['fname'];
-        $datepaid=$_POST['datepaid'];
-        $month=$_POST['month'];
-        $amount=$_POST['amount'];
-        $cpfoa=$_POST['cpfoa'];
-        $cpfsa=$_POST['cpfsa'];
-        $cpfms=$_POST['cpfms'];
+
+        $stmt = $conn->prepare("SELECT cpfid FROM swaprj.cpf WHERE cpfid=?");
+        
+        $res = $stmt->execute();
+        $stmt->bind_result($cpfid);
+        $stmt->store_result();
+        while($stmt->fetch()){
+
+
+
+        //Query swaprj database and select data from salary table
+        //$query="SELECT fname,datepaid,month,amount,cpfoa,cpfsa,cpfms FROM swaprj.cpf WHERE cpfid=?"; 
+        //$result=mysqli_query($conn, $query);
+
+        //$nrows=mysqli_num_rows($result); 
+        //if ($nrows>0) {                    
+            //$row=mysqli_fetch_assoc($result);
+            //$fname=$row['cpfid'];
+            //$fname=$row['fname'];
+            //$fname=$row['datepaid'];
+            //$fname=$row['month'];
+            //$fname=$row['amount'];
+            //$cpfoa=$row['cpfoa'];
+            //$cpfsa=$row['cpfsa'];
+            //$cpfms=$row['cpfms'];
+           
+        //}
+        //else{
+           // echo "There are no records.<br>";
+        //}
 
         echo "Are you going to delete this CPF ID? : ".$cpfid;
         echo "<form action='cpf_doDelete.php' method='post'>";
         echo "<input type='hidden' name='cpfid' value='".$cpfid."'>";
         echo "<input type='submit' name='cpf_doDelete' value='Confirm'/>";
         echo "</form>";
+        }
     ?>
 
     <br>

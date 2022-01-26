@@ -51,7 +51,16 @@
             </select>
     
             <label for="amount">Amount</label>
-            <input type="text" name="amount"></textarea>
+            <input type="text" name="amount">
+
+            <label for="cpfoa">Updated CPF Ordinary Account</label>
+            <input type="text" name="cpfoa">
+
+            <label for="cpfsa">Updated CPF Special Account</label>
+            <input type="text" name="cpfsa">
+
+            <label for="cpfms">Updated CPF Medishield Account</label>
+            <input type="text" name="cpfms">
     
     
     

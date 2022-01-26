@@ -64,7 +64,7 @@
         <?php
             include 'connect.php';
 
-            $stmt = $conn->prepare("SELECT fname,cpfoa,cpfsa,cpfms FROM swaprj.user_information");
+            $stmt = $conn->prepare("SELECT fname,cpfoa,cpfsa,cpfms FROM swaprj.cpf");
             $res = $stmt->execute();
             $stmt->bind_result($rfname,$rcpfoa,$rcpfsa,$rcpfms);
             $stmt->store_result();

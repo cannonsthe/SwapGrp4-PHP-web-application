@@ -20,7 +20,6 @@
            <a href="index.php">Logout</a>
        </div>
     </div>
-    <div class="container2" style="margin-top:25px;">
     <?php
 
         include 'connect.php';
@@ -34,19 +33,15 @@
         $cpfsa=$_POST['cpfsa'];
         $cpfms=$_POST['cpfms'];
 
-
-        $stmt = $conn->prepare("INSERT into swaprj.cpf VALUES(?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("isssssss", $cpfid, $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms);
-        $res = $stmt->execute();
-        if($res){
-            echo "<strong><h1 style='text-align:center;'>";
-            echo "Successfully added CPF record</h1></strong>";
-        }else
-            echo "Unable to insert";
+        echo "Are you going to delete this CPF ID? : ".$cpfid;
+        echo "<form action='cpf_doDelete.php' method='post'>";
+        echo "<input type='hidden' name='cpfid' value='".$cpfid."'>";
+        echo "<input type='submit' name='cpf_doDelete' value='Confirm'/>";
+        echo "</form>";
     ?>
-    <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
-        <a href='CPF.php'>
-        <input class='button' type='button' value='Return to CPF Contributions' /></a>
-    </form>
+
+    <br>
+    <br>
+     <a href="Employee.php">Return</a>
 </body>
 </html>

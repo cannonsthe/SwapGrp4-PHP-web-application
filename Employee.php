@@ -21,10 +21,10 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:27%;">Employee Information Records</p><strong>
+    <strong><p style="font-size:40px;text-align:center;">Employee Information Records</p><strong>
     
     <form action="Employee_create.php">
-        <input type="submit" value="Add Employee Information">
+        <input type="submit" class="add_button" value="Add Employee Information">
     </form>
 
     <br>
@@ -44,7 +44,7 @@
      
         //Create a loop that returns each row of data until there is no more data left while there is at least one row of data
         if ($nrows>0){  
-         echo "<table border='1'>";    //Print out table of data
+         echo "<table>";    //Print out table of data
              echo "<tr>";   //Print out a row for data to be filled in
                  echo "<th>User ID</th>";    //Print out the queried columns for printed row
                  echo "<th>Full Name</th>";

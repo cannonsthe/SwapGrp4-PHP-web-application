@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee Information</title>
+    <title>Delete Employee Information Confirmation 1</title>
     <link rel="stylesheet" href="Employee.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:33%;">Delete Employee Information</p><strong>
+    <strong><p style="font-size:50px;text-align:center;">Confirmation?</p><strong>
     
     <?php
 
@@ -41,16 +41,18 @@
         $cpfms=$_POST['cpfms'];
         $p_email=$_POST['p_email'];
 
-        echo "Are you going to delete this user information? ".$userid;
-        echo "<form action='Employee_doDelete.php' method='post'>";
+        echo "<strong><h2 style='text-align:center;'>";
+        echo "Are you going to delete ".$fname."'s Information?</h2></strong>";
+        echo "<table>";
+        echo "<td><form action='Employee_doDelete.php' method='post'>";
         echo "<input type='hidden' name='userid' value='".$userid."'>";
-        echo "<input type='submit' name='Employee_doDelete' value='Confirm'/>";
-        echo "</form>";
+        echo "<input class='submit_add2' type='submit' name='Employee_doDelete'  value='Yes'/>";
+        echo "</form></td>";
+        echo "<td>";
+        echo "<a href='Employee.php' style='margin-left:5px;'><input class='submit_add2' type='button' name='Employee' value='NO'/></a>";
+        echo "</form></td>";
+        echo "</strong>";
     ?>
 
-    <br>
-    <br>
-     <a href="Employee.php">Return</a>
-     <br>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee Information</title>
+    <title>Add Employee Information Confirmation</title>
     <link rel="stylesheet" href="Employee.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:33%;">Add Employee Information</p><strong>
+    <strong><p style="font-size:50px;text-align:center;">Success / Failure?</p><strong>
     
     <?php
 
@@ -45,14 +45,18 @@
         $stmt->bind_param("issssssssssss", $userid, $fname, $w_email, $department, $dateregistered, $position, $password, $bankname, $bankaccount, $cpfoa, $cpfsa, $cpfms, $p_email);
         $res = $stmt->execute();
         if($res){
-            echo "Insert successfully";
+            echo "<strong><h1 style='text-align:center;'>";
+            echo "Successfully Insert USER INFORMATION</h1></strong>";
         }else
             echo "Unable to insert";
     ?>
 
     <br>
     <br>
-     <a href="Employee.php">Return to Employee Information Records</a>
+    <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
+        <a href='Employee.php'>
+        <input class='return' type='button' value='Return to Employee Information Records' /></a>
+    </form>
      <br>
 </body>
 </html>

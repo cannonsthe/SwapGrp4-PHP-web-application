@@ -21,7 +21,7 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:27%;">Delete Employee Information</p><strong>
+    <strong><p style="font-size:40px;text-align:center;">Delete Employee Information</p><strong>
     
     <?php
      
@@ -58,8 +58,8 @@
         <form action="Employee_delete2.php" method="post">
             <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
             </br>    
-            <strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong>
-            <input type="text" class="form-control" name="userid" value="<?php echo $_GET['UserID']; ?>">
+            <!--strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong-->
+            <input type="hidden" class="form-control" name="userid" value="<?php echo $_GET['UserID']; ?>">
             </br>
             <strong><label for="fname" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Full Name</label></strong>
             <input type="text" class="form-control" name="fname" value="<?php echo $fname; ?>">
@@ -97,7 +97,7 @@
             <strong><label for="p_email" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Personal Email</label></strong>
             <input type="text" class="form-control" name="p_email" value="<?php echo $p_email; ?>">
             </br>
-            <input type="submit"  value="Delete">
+            <input type="submit" class="submit_add" value="DELETE">
         </form>
     </div>
 

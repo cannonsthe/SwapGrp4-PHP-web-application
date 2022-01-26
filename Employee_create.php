@@ -21,14 +21,14 @@
        </div>
     </div>
 
-    <strong><p style="font-size:40px;margin-left:33%;">Add Employee Information</p><strong>
+    <strong><p style="font-size:40px;text-align:center;">Add Employee Information</p><strong>
     
     <div class="container">
         <form action="Employee_create2.php" method="post">
             <img src="/pictures/EmployeeInformation_UserInformation.png" id="icon" alt="User Icon" style="width:250px; margin-left:40%" />
             </br>    
-            <strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong>
-            <input type="text" class="form-control" name="userid">
+            <!--strong><label for="userid" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">User ID</label></strong-->
+            <input type="hidden" class="form-control" name="userid">
             </br>
             <strong><label for="fname" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Full Name</label></strong>
             <input type="text" class="form-control" name="fname">
@@ -66,7 +66,7 @@
             <strong><label for="p_email" style="margin: 0px auto 0px auto;font-size: 20px;margin-bottom:0px;">Personal Email</label></strong>
             <input type="text" class="form-control" name="p_email">
             </br>
-            <input type="submit"  value="Submit">
+            <input type="submit" class="submit_add" value="ADD">
         </form>
     </div>
 

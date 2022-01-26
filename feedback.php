@@ -33,7 +33,7 @@
 
 include 'connect.php';
 
-$stmt = $conn->prepare("SELECT feedbackid,fname,subject,email,feedback,department FROM feedback");
+$stmt = $conn->prepare("SELECT feedbackid,fname,subject,email,feedback,department FROM swaprj.feedback");
 $res = $stmt->execute();
 $stmt->bind_result($feedbackid,$fname,$subject,$email, $feedback, $department);
 $stmt->store_result();
@@ -44,9 +44,9 @@ while($stmt->fetch()){
     echo "<tr><td class='data2'>"."Feedback ID"."</td><td class='data'>".$feedbackid."</td></tr><tr><td class='data2'>"."Employee Name"."</td><td class='data'>".$fname."</td></tr><tr><td class='data2'>"."Subject"."</td><td class='data'>".$subject."</td></tr><tr><td class='data2'>"."Email"."</td><td class='data'>".$email."</td></tr><tr><td class='data2'>"."Feedback"."</td><td class='data'>".$feedback."</td></tr><tr><td class='data2'>"."Department"."</td><td class='data'>".$department."</td></tr>";
     echo "</table>";
     echo "<div style='text-align:right;margin-top:5px;margin-bottom:-10px;'>
-    <a href='feedback_update.php'>
+    <a href='feedback_update.php?feedbackID=" . $feedbackid . "'>
     <input class='button' type='button' value='Edit Feedback' /></a>
-    <a href='feedback_delete.php'>
+    <a href='feedback_delete.php?feedbackID=" . $feedbackid . "'>
     <input class='button' type='button' value='Delete feedback' /></a></div>";
 //echo "<tr><td>".$userid."</td><td>".$feedbackid."</td><td>".$fname."</td><td>" .$subject."</td><td>" .$email."</td><td>" .$feedback."</td><td>" .$department. "</td></tr>";
     }

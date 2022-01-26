@@ -27,17 +27,17 @@
 
         include 'connect.php';
 
-        $userid=$_POST['userid'];
+        
         $feedbackid=$_POST['feedbackid'];
         $fname=$_POST['fname'];
         $subject=$_POST['subject'];
         $email=$_POST['email'];
-        $feedbackid=$_POST['feedback'];
+        $feedback=$_POST['feedback'];
         $department=$_POST['department'];
         
 
-        $stmt = $conn->prepare("UPDATE feedback SET fname=?, subject=?, email=?, feedback=?, department=? WHERE userid=?");
-        $stmt->bind_param("sssss", $fname, $subject, $email, $feedback, $department);
+        $stmt = $conn->prepare("UPDATE swaprj.feedback SET fname=?, subject=?, email=?, feedback=?, department=? WHERE feedbackid=?");
+        $stmt->bind_param("sssssi", $fname, $subject, $email, $feedback, $department, $feedbackid);
         $res = $stmt->execute();
         if($res){
             echo "Update successfully";

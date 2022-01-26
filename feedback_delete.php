@@ -27,14 +27,23 @@
     <?php
 
         include 'connect.php';
-        $feedbackid=$_POST["feedbackid"];
-        $fname=$_POST["fname"];
-        $subject=$_POST["subject"];
-        $email=$_POST["email"];
-        $department=$_POST["department"];
-        
 
-        echo "Are you going to delete this user information? ".$feedbackid;
+    
+        $query="SELECT feedbackid FROM swaprj.feedback WHERE feedbackid=" . $_GET['feedbackID'] ; 
+        $result=mysqli_query($conn, $query);
+
+        $nrows=mysqli_num_rows($result); 
+        if ($nrows>0) {                    
+            $row=mysqli_fetch_assoc($result);
+            $feedbackid=$row['feedbackid'];
+            
+           
+        }
+        else{
+           echo "There are no records.<br>";
+        }
+
+        echo "Are you going to delete this feedback? ".$feedbackid;
         echo "<form action='feedback_dodelete.php' method='post'>";
         echo "<input type='hidden' name='feedbackid' value='".$feedbackid."'>";
         echo "<input type='submit' name='feedback_dodelete' value='Confirm'/>";

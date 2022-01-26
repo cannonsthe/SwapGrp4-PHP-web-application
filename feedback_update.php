@@ -29,7 +29,7 @@
         include 'connect.php';
 
         //Query swaprj database and select data from salary table
-        $query="SELECT feedbackid, fname, subject, email, feedback, department FROM feedback WHERE feedbackid=" . $_GET['FeedbackID'];
+        $query="SELECT feedbackid, fname, subject, email, feedback, department FROM swaprj.feedback WHERE feedbackid=" . $_GET['feedbackID'];
         $result=mysqli_query($conn, $query);
 
         //Getting the rows of data from the salary table
@@ -54,7 +54,7 @@
         
 
             <label for="feedbackid">Feedback ID</label>
-            <input type="text" name="feedbackid" value="<?php echo $_GET['FeedbackID']; ?>">
+            <input type="text" name="feedbackid" value="<?php echo $_GET['feedbackID']; ?>">
 
             <label for="fname">Name</label>
             <input type="text" name="fname" value="<?php echo $fname; ?>">
@@ -66,7 +66,7 @@
             <input type="text" name="email" value="<?php echo $email; ?>">
             <!---id="email" placeholder="Your email"--->
             <label for="feedback">Feedback</label>
-            <textarea style="height:200px" name="feedback" value="<?php echo $feedback; ?>"></textarea>
+            <input type="text" name="feedback" value="<?php echo $feedback; ?>">
             <!---id="feedback" placeholder="Feedback"--->
             <label for="department">Department</label>
             <input type="text" name="department" value="<?php echo $department; ?>">

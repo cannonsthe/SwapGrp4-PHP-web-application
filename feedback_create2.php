@@ -50,7 +50,7 @@ include 'connect.php';
          //echo "INSERT OK<br>";
      //}
 
-     $stmt = $conn->prepare("INSERT into feedback VALUES(?,?,?,?,?,?)");
+     $stmt = $conn->prepare("INSERT into swaprj.feedback VALUES(?,?,?,?,?,?)");
      $stmt->bind_param("isssss", $feedbackid, $fname, $subject, $email, $feedback, $department);
      $res = $stmt->execute();
      if($res){

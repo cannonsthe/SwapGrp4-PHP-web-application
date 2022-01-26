@@ -39,7 +39,7 @@
     <input type="text" name="email">
     <!---id="email" placeholder="Your email"--->
     <label for="feedback">Feedback</label>
-    <textarea style="height:200px" name="feedback"></textarea>
+    <input type="text" style="height:200px" name="feedback">
     <!---id="feedback" placeholder="Feedback"--->
     <label for="department">Department</label>
     <input type="text" name="department">

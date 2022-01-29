@@ -41,7 +41,7 @@
         <br><br>
         <input type="submit" value="Retrieve" name="get1" id="get1">
         <?php
-        $year = $_POST['year']; #########Test Retrieve
+        $year = $_POST['year']; #Test Retrieve
         if ($year == null) {
             $year = 'All';
         };

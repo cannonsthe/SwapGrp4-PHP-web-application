@@ -7,7 +7,7 @@ function validation($at)
         if ($at == 'add' || $at == 'update') {
             //Year check. No special character allowed, no more or less than 4 digits and must be solely numbers.
             $year = htmlspecialchars($_POST['year']);
-            if (is_numeric($year) && strlen($year) == 4 && preg_match('/[\'^£$%&*()}{@#~?><>,.|=_+¬-]/', $year) == false && $year >= 2000) {
+            if (preg_match('/[\'^£$%&*()}{@#~?><>,.|=_+¬-]/', $year) == false && is_numeric($year) && strlen($year) == 4 && $year >= 2000) {
             } else {
                 echo $ealert;
                 $errors++;

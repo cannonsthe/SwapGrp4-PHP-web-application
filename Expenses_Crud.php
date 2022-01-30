@@ -7,66 +7,35 @@
     <link rel="stylesheet" href="Expenses.css">
 </head>
 <?php
-include('connect.php');
-include('Expenses_function.php');
-$at = $_POST['actiontype'];
-$year = $_POST['year'];
-$type = $_POST['type'];
-$amount = round(floatval($_POST['amount']), 2);
-$expenseid = $_POST['expenseid'];
+session_start();
+error_reporting(0);
+ini_set('display_errors', 0);
+include('connect.php');include('Expenses_function.php');
+$at = $_POST['actiontype'];$year = $_POST['year'];$type = $_POST['type'];$amount = round(floatval($_POST['amount']), 2);$expenseid = $_POST['expenseid'];
 $refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Executed');window.location.href='/Expenses.php';</script> ";
 $errorarray = validation($at);
-
-if (isset($at)) {
-
-    if ($at == "add") {
-        $query = $con->prepare("INSERT INTO `expenses` (`year`,`type`,`amount`) VALUES
-        (?,?,?)");
-        $query->bind_param('sss', $year, $type, $amount); //bind the parameters
-        if (!empty($errorarray)) {
-            foreach ($errorarray as $array) {
-                echo $array;
-                echo "<br>";
-            }
-        } else {
-            $query->execute(); //execute query
-            echo ($refresh);
-        }
-        $query->close();
-    }
-
-    if ($at == "update") {
-        $query = $con->prepare("UPDATE expenses SET year=?, type=?, amount=? WHERE expenseid=?");
-        $query->bind_param('sssi', $year, $type, $amount, $expenseid); //bind the parameters
-        if (!empty($errorarray)) {
-            foreach ($errorarray as $array) {
-                echo $array;
-                echo "<br>";
-            }
-        } else {
-            $query->execute(); //execute query
-            echo ($refresh);
-        }
-        $query->close();
-    }
-
-    if ($at == "delete") {
-        $query = $con->prepare("DELETE FROM expenses WHERE expenseid=?;");
-        $query2 = $con->prepare("ALTER TABLE expenses AUTO_INCREMENT = 1");
-        $query->bind_param('i', $expenseid); //bind the parameters
-        if (!empty($errorarray)) {
-            foreach ($errorarray as $array) {
-                echo $array;
-                echo "<br>";
-            }
-        } else {
-            $expenseid = $_REQUEST['expenseid'];
-            $query->execute(); //execute query
-            echo ($refresh);
-        }
-        $query->close();
-    }
-    echo "<br><a href='Expenses.php'><u>Go back!</u></a>";
-} else {
-    echo "<script LANGUAGE='JavaScript'>window.alert('Select an action type!');window.location.href='/Expenses.php';</script> ";
+if (!isset($_SESSION['token']))
+{
+ $_SESSION['token'] = md5(uniqid(rand(), TRUE));
 }
+if ($_POST['token'] === $_SESSION['token']){
+    $token_age = time() - $_SESSION['token_time'];
+    if (isset($at)) {
+        if ($at == "add") {
+            addexpense($year, $type, $amount, $con, $refresh, $errorarray);
+        }
+    
+        if ($at == "update") {
+            updateexpense($year, $type, $amount, $con, $refresh, $expenseid, $errorarray);
+        }
+    
+        if ($at == "delete") {
+            deleteexpense($con, $refresh, $expenseid, $errorarray);
+        }
+        echo "<br><a href='Expenses.php'><u>Go back!</u></a>";
+    } else {
+        echo "<script LANGUAGE='JavaScript'>window.alert('Select an action type!');window.location.href='/Expenses.php';</script> ";
+    }
+    
+}
+

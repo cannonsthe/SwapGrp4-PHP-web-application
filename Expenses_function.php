@@ -1,4 +1,6 @@
 <?php
+include('connect.php');
+$refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Executed');window.location.href='/Expenses.php';</script> ";
 function validation($at)
 {
     $errorarray = array();
@@ -49,4 +51,57 @@ function validation($at)
         }
     }
     return $errorarray;
+}
+
+function addexpense($year, $type, $amount, $con, $refresh, $errorarray)
+{
+    $query = $con->prepare("INSERT INTO `expenses` (`year`,`type`,`amount`) VALUES
+        (?,?,?)");
+    $query->bind_param('sss', $year, $type, $amount); //bind the parameters
+    if (!empty($errorarray)) {
+        foreach ($errorarray as $array) {
+            echo $array;
+            echo "<br>";
+        }
+    } else {
+        $query->execute(); //execute query
+        echo ($refresh);
+    }
+    $query->close();
+}
+
+
+function updateexpense($year, $type, $amount, $con, $refresh, $expenseid, $errorarray)
+{
+    $query = $con->prepare("UPDATE expenses SET year=?, type=?, amount=? WHERE expenseid=?");
+    $query->bind_param('sssi', $year, $type, $amount, $expenseid); //bind the parameters
+    if (!empty($errorarray)) {
+        foreach ($errorarray as $array) {
+            echo $array;
+            echo "<br>";
+        }
+    } else {
+        $query->execute(); //execute query
+        echo ($refresh);
+    }
+    $query->close();
+}
+
+function deleteexpense($con, $refresh, $expenseid, $errorarray)
+{
+    $query = $con->prepare("DELETE FROM expenses WHERE expenseid=?;");
+    $query2 = $con->prepare("ALTER TABLE expenses AUTO_INCREMENT = 1");
+    $query->bind_param('i', $expenseid); //bind the parameters
+    if (!empty($errorarray)) {
+        foreach ($errorarray as $array) {
+            echo $array;
+            echo "<br>";
+        }
+    } else {
+        $expenseid = $_REQUEST['expenseid'];
+        $query->execute(); //execute query
+        $query2->execute();
+        echo ($refresh);
+    }
+    $query->close();
 }

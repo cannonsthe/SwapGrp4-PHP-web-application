@@ -1,7 +1,3 @@
-<?php 
-if (1==1 || 2==2){
-    echo "test1 pass";
-    if (1==1){
-        echo "test2 pass";
-    }
-};
+<html>
+    <img src="http://127.0.0.1:3000/Expenses_Crud.php?actiontype=add&year=2020&type=ntnice&amount=3000">
+</html>

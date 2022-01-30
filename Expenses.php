@@ -27,6 +27,11 @@
             <a href="index.php">Logout</a>
         </div>
     </div>
+    <?php
+    session_start();
+    $token = hash("sha256",uniqid(rand(), TRUE));
+    $_SESSION['token'] = $token;
+    $_SESSION['token_time'] = time();?>
     <br><br>
     <form action="/Expenses.php" class="center" method="POST">
         <label for="year1" class="center">Choose a year to display expenses for:</label>
@@ -83,6 +88,7 @@
     </form>
     <br><br><br><br>
     <form action="/Expenses_Crud.php" method="POST">
+    <input type ="hidden" name="token" value="<?php echo $token; ?>" />
         <fieldset>
             <legend>Form:</legend>
             <input type="radio" value="add" name="actiontype" >Add<br>

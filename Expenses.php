@@ -66,7 +66,7 @@
             h></tr>";
             }
             echo "</table>";
-        } else/* ($year>=0000) */ {
+        } else {
 
             $query = $con->prepare("select * from expenses WHERE year=?");
             $query->bind_param("s",$year);

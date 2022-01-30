@@ -32,11 +32,10 @@
 
       <!-- Login Form -->
       <div>
-        <form>
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"><br />
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br />
-          <!-- <input type="submit" class="fadeIn fourth" value="Login" onclick="window.location.href='Employee.php'">  -->
-          <input type="button" class="fadeIn fourth" value="Login" onclick="window.location.href='Employee.php'">
+        <form action="login_function.php" method="POST">
+          <input type="text" id="user" class="fadeIn second" name="user" placeholder="user"><br />
+          <input type="text" id="password" class="fadeIn third" name="password" placeholder="password"><br />
+          <input type="submit" class="fadeIn fourth" value="Login">
         </form>
       </div>
     </div>

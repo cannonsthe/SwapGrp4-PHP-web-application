@@ -37,6 +37,8 @@
             <option value="2021">2021</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
         </select>
         <br><br>
         <input type="submit" value="Retrieve" name="get1" id="get1">
@@ -47,8 +49,8 @@
         };
         if ($year == "All") {
             $query = $con->prepare("select * from expenses");
-            $query->execute();
             $query->bind_result($expenseid, $year, $type, $amount);
+            $query->execute();
             echo "<table class='salary'><tr>";
             echo
             "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount($) |</t
@@ -61,9 +63,10 @@
             echo "</table>";
         } else/* ($year>=0000) */ {
 
-            $query = $con->prepare("select * from expenses WHERE year=$year");
-            $query->execute();
+            $query = $con->prepare("select * from expenses WHERE year=?");
+            $query->bind_param("s",$year);
             $query->bind_result($expenseid, $year, $type, $amount);
+            $query->execute();
             echo "<table class='salary'><tr>";
             echo
             "<th>| Expense ID</th><th>| Year |</th><th>Type of Expense |</th><th> Amount($) |</t

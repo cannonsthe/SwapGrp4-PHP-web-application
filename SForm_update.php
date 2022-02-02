@@ -54,9 +54,9 @@
     <!--Create form for updating-->
     <form action="SProcess_update.php" method="post">
     <input type="hidden" name="userid" value="<?php echo $_GET['UserID']; ?>"><br>
-    Amount: <input type="text" name="amount" value="<?php echo $amount; ?>"><br>
-    Position: <input type="text" name="position" value="<?php echo $position; ?>"><br>
-    Name: <input type="text" name="fname" value="<?php echo $name; ?>"><br>
+    Amount: <input type="text" name="amount" value="<?php echo $amount; ?>" required><br>
+    Position: <input type="text" name="position" value="<?php echo $position; ?>" required><br>
+    Name: <input type="text" name="fname" value="<?php echo $name; ?>" required><br>
     <input type="submit" value="Click to update records">
     </form>
 

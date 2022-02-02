@@ -25,7 +25,7 @@
      <form action="SProcess_create.php" method="post">        <!--Create form for adding record-->
          UserID: <input type="text" name="userid"><br>
          Amount: <input type="text" name="amount"><br>
-         Position: <input type="text" name="position"><br>
+         Position: <input type="text" maxlength name="position"><br>
          Name: <input type="text" name="fname"><br>
          <input type="submit" value="Submit">
      </form>

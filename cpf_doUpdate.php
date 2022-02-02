@@ -39,7 +39,11 @@
             		$stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
             		$res = $stmt->execute();
             		if($res){
-                		echo "Update successful";
+                		
+                        echo "<h1 style='text-align:center;'>Update Successful";
+                        echo "<form style='text-align:center'>";
+                        echo "<a href='CPF.php'><input class='button' type='button' name='CPF' value='Return to CPF'/></a>";
+                        echo "</form>";
             		}else
                 		echo "Unable to update";
 

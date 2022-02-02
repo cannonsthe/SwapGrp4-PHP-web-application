@@ -23,7 +23,7 @@
 
      <b>Add Records</b><br>
      <form action="SProcess_create.php" method="post">        <!--Create form for adding record-->
-         UserID: <input type="text" name="userid" required><br>
+         UserID: <input type="number" name="userid" required><br>
          Amount: <input type="text" name="amount" required><br>
          Position: <input type="text" maxlength name="position" required><br>
          Name: <input type="text" name="fname" required><br>

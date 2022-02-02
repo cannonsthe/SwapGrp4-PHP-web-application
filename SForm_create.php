@@ -25,7 +25,7 @@
      <form action="SProcess_create.php" method="post">        <!--Create form for adding record-->
          UserID: <input type="number" name="userid" required><br>
          Amount: <input type="text" name="amount" required><br>
-         Position: <input type="text" name="position" pattern="(?=.*[a-z])" title="Must contain at least one letter or word" required><br>
+         Position: <input type="text" name="position" required><br>
          Name: <input type="text" name="fname" required><br>
          <input type="submit" value="Submit">
      </form>

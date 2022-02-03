@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION['user'])){
+    header("Location: index.php");
+}
 include('connect.php');
 $refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Executed');window.location.href='/Expenses.php';</script> ";
 function validation($at)

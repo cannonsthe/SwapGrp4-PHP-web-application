@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+error_reporting(1);
+ini_set('display_errors', 1);
+include('connect.php'); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +15,13 @@
 
 <body>
     <?php
-    error_reporting(1);
-    ini_set ('display_errors', 1);
-    include ('connect.php');
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        header("Location: index.php");
+    }
+    $token = hash("sha256", uniqid(rand(), TRUE));
+    $_SESSION['token'] = $token;
+    $_SESSION['token_time'] = time();
     ?>
     <div class="navbar">
         <a href="#" class="logo">FRecords</a>
@@ -24,14 +31,11 @@
             <a href="Expenses.php" class="active"> General Expenses</a>
             <a href="CPF.php">CPF Contributions</a>
             <a href="feedback.php">Feedback</a>
-            <a href="index.php">Logout</a>
+            <a href="logout.php">Logout</a>
         </div>
     </div>
     <?php
-    session_start();
-    $token = hash("sha256",uniqid(rand(), TRUE));
-    $_SESSION['token'] = $token;
-    $_SESSION['token_time'] = time();?>
+    ?>
     <br><br>
     <form action="/Expenses.php" class="center" method="POST">
         <label for="year1" class="center">Choose a year to display expenses for:</label>
@@ -69,7 +73,7 @@
         } else {
 
             $query = $con->prepare("select * from expenses WHERE year=?");
-            $query->bind_param("s",$year);
+            $query->bind_param("s", $year);
             $query->bind_result($expenseid, $year, $type, $amount);
             $query->execute();
             echo "<table class='salary'><tr>";
@@ -84,22 +88,27 @@
             }
             echo "</table>";
         }
+        function logout()
+        {
+            session_destroy();
+            header("Location: index.php");
+        }
         ?>
     </form>
     <br><br><br><br>
     <form action="/Expenses_Crud.php" method="POST">
-    <input type ="hidden" name="token" value="<?php echo $token; ?>" />
+        <input type="hidden" name="token" value="<?php echo $token; ?>" />
         <fieldset>
             <legend>Form:</legend>
-            <input type="radio" value="add" name="actiontype" >Add<br>
-            <input type="radio" value="update" name="actiontype" >Update<br>
-            <input type="radio" value="delete" name="actiontype" >Delete <br>
+            <input type="radio" value="add" name="actiontype">Add<br>
+            <input type="radio" value="update" name="actiontype">Update<br>
+            <input type="radio" value="delete" name="actiontype">Delete <br>
             <label for="year">Year of Expense:</label>
-            <input type="text" id="year" name="year" ><br><br>
+            <input type="text" id="year" name="year"><br><br>
             <label for="type">Type of Expense:</label>
-            <input type="text" id="type" name="type" ><br><br>
+            <input type="text" id="type" name="type"><br><br>
             <label for="amount">Amount:</label>
-            <input type="text" id="amount" name="amount" ><br><br>
+            <input type="text" id="amount" name="amount"><br><br>
             <label for="expenseid">Expense ID (Only Use For Updating or Deleting!):</label>
             <input type="text" id="expenseid" name="expenseid" step="1"><br><br>
             <input type="submit" name="action" value="Do">

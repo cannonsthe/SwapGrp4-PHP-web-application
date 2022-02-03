@@ -17,13 +17,18 @@
            <a href="Expenses.php" > General Expenses</a>
            <a href="CPF.php" class="active">CPF Contributions</a>
            <a href="feedback.php">Feedback</a>
-           <a href="index.php">Logout</a>
+           <a href="logout.php">Logout</a>
        </div>
     </div>
     <div class="container2" style="margin-top:25px;">
     <?php
 
         include 'connect.php';
+        session_start();
+        if(!isset($_SESSION['user'])){
+            header("Location:index.php");
+        }
+        
 
         $query="SELECT cpfid,fname,datepaid,month,amount,cpfoa,cpfsa,cpfms FROM swaprj.cpf WHERE cpfid=" . $_GET['cpfID']; 
         $result=mysqli_query($conn, $query);

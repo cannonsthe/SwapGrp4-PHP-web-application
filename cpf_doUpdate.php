@@ -19,13 +19,18 @@
             <a href="Expenses.php"> General Expenses</a>
             <a href="CPF.php" class="active">CPF Contributions</a>
             <a href="feedback.php">Feedback</a>
-            <a href="index.php">Logout</a>
+            <a href="logout.php">Logout</a>
         </div>
     </div>
     <div class="container">
         <?php
 
         include 'connect.php';
+        session_start();
+                        if(!isset($_SESSION['user'])){
+                            header("Location:index.php");
+                        }
+                        
 
 
         $fname = $_POST['fname'];
@@ -38,16 +43,17 @@
         $cpfid = $_POST['cpfid'];
 
         $stmt = $conn->prepare("UPDATE swaprj.cpf SET fname=?, datepaid=?, month=?, amount=?, cpfoa=?, cpfsa=?, cpfms=? WHERE cpfid=?");
-            		$stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
-            		$res = $stmt->execute();
-            		if($res){
-                		
-                        echo "<h1 style='text-align:center;'>Update Successful";
-                        echo "<form style='text-align:center'>";
-                        echo "<a href='CPF.php'><input class='button' type='button' name='CPF' value='Return to CPF'/></a>";
-                        echo "</form>";
-            		}else
-                		echo "Unable to update";
+        $stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
+        $res = $stmt->execute();
+        if ($res) {
+            echo "Update successful";
+        } else
+            echo "Unable to update";
+
+
+        ?>
+
+        ?>
 
     </div>
 </body>

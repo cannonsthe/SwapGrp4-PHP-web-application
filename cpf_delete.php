@@ -24,6 +24,10 @@
     <?php
 
         include 'connect.php';
+        session_start();
+                        if(!isset($_SESSION['user'])){
+                            header("Location:index.php");
+                        }
 
         
             
@@ -31,7 +35,7 @@
 
 
 
-        //Query swaprj database and select data from salary table
+        //Query swaprj database and select data from cpf table
         $query="SELECT cpfid FROM swaprj.cpf WHERE cpfid=" . $_GET['cpfID'] ; 
         $result=mysqli_query($conn, $query);
 

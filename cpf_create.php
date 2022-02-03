@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="CPF.css">
 </head>
 <body>
+<?php 
+session_start();
+                        if(!isset($_SESSION['user'])){
+                            header("Location:index.php");
+                        }
+                        
+                        ?>
 
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
@@ -70,5 +77,6 @@
 
         </form>
     </div>
+    
 </body>
 </html>

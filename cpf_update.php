@@ -24,6 +24,11 @@
     <?php
 
         include 'connect.php';
+        session_start();
+        if(!isset($_SESSION['user'])){
+            header("Location:index.php");
+        }
+        
 
         $query="SELECT cpfid,fname,datepaid,month,amount,cpfoa,cpfsa,cpfms FROM swaprj.cpf WHERE cpfid=" . $_GET['cpfID']; 
         $result=mysqli_query($conn, $query);

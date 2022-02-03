@@ -44,6 +44,9 @@
         $cpfsa=$_POST['cpfsa'];
         $cpfms=$_POST['cpfms'];
         $p_email=$_POST['p_email'];
+        
+        //$hashAlgo = "sha256";
+        //$hashValue = hash($hashAlgo, $password);
 
         $stmt = $conn->prepare("INSERT into swaprj.user_information VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("issssssssssss", $userid, $fname, $w_email, $department, $dateregistered, $position, $password, $bankname, $bankaccount, $cpfoa, $cpfsa, $cpfms, $p_email);

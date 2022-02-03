@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="Employee.css">
 </head>
 <body>
+    
+    <?php
+        include 'session.php';
+    ?>
 
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>

@@ -9,6 +9,10 @@
 </head>
 <body>
 
+    <?php
+        include 'session.php';
+    ?>
+    
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">

@@ -7,7 +7,6 @@ include('connect.php');
 $refresh = "<script LANGUAGE='JavaScript'>window.alert('Succesfully Executed');window.location.href='/Expenses.php';</script> ";
 function validation($at)
 {
-    
     $errorarray = array();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($at == 'add' || $at == 'update') {

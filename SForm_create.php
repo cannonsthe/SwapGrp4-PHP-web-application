@@ -21,6 +21,15 @@
        </div>
     </div>
 
+
+    <?php   
+    session_start();
+    if (!isset($_SESSION['user'])) {     //Prevent broken access control
+       header("Location: index.php");
+    }
+    echo $_SESSION['user'];
+    ?>
+
      <b>Add Records</b><br>
      <form action="SProcess_create.php" method="post">        <!--Create form for adding record-->
          UserID: <input type="number" name="userid" required><br>

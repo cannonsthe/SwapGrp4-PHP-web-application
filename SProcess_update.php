@@ -23,6 +23,12 @@
 
     <?php
 
+    session_start();
+    if (!isset($_SESSION['user'])) {     //Prevent broken access control
+     header("Location: index.php");
+    }
+    echo $_SESSION['user'];
+
     //Use POST method to specify variables and get data from our database
     $userid=$_POST['userid'];
     $amount=$_POST['amount'];

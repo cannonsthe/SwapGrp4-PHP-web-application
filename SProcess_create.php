@@ -24,6 +24,12 @@
 
     <?php
 
+    session_start();
+    if (!isset($_SESSION['user'])) {     //Prevent broken access control
+       header("Location: index.php");
+    }
+    echo $_SESSION['user'];
+
     $userid=$_POST['userid'];
     $amount=$_POST['amount'];         //Use POST method to retrive data under columns in salary table
     $position=$_POST['position'];

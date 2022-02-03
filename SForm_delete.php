@@ -22,7 +22,13 @@
     </div>
 
     <?php
-     
+     session_start();
+     if (!isset($_SESSION['user'])) {     //Prevent broken access control
+        header("Location: index.php");
+     }
+     echo $_SESSION['user'];
+
+
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      
      //Check if the connection works or not

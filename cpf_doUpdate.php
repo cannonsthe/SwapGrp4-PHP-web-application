@@ -38,17 +38,6 @@
         $cpfid = $_POST['cpfid'];
 
         $stmt = $conn->prepare("UPDATE swaprj.cpf SET fname=?, datepaid=?, month=?, amount=?, cpfoa=?, cpfsa=?, cpfms=? WHERE cpfid=?");
-<<<<<<< HEAD
-        $stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
-        $res = $stmt->execute();
-        if ($res) {
-            echo "Update successful";
-        } else
-            echo "Unable to update";
-
-
-        ?>
-=======
             		$stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
             		$res = $stmt->execute();
             		if($res){
@@ -59,7 +48,6 @@
                         echo "</form>";
             		}else
                 		echo "Unable to update";
->>>>>>> 42af5f3af7c29a6149878870c3f093b595697615
 
     </div>
 </body>

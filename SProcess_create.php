@@ -18,7 +18,7 @@
            <a href="Expenses.php" > General Expenses</a>
            <a href="CPF.php">CPF Contributions</a>
            <a href="feedback.php">Feedback</a>
-           <a href="index.php">Logout</a>
+           <a href="Logout.php">Logout</a>
        </div>
     </div>
 

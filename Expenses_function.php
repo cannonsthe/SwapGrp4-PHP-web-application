@@ -6,18 +6,23 @@ function validation($at)
     $errorarray = array();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($at == 'add' || $at == 'update') {
-            //Year check. No special character allowed, no more or less than 4 digits and must be solely numbers.
+
+            // Year validation. No special character allowed, no more or less than 4 digits and must be solely numbers.
             $year = $_POST['year'];
-            if (!empty($year) && preg_match('/[\'^£$%&*()}{@#~?><>,.|=_+¬-]/', $year) == false && is_numeric($year) && strlen($year) == 4) {
-            } else {
-                array_push($errorarray, "Enter a valid year! \r\n");
+            if (empty($year)) {
+                array_push($errorarray, "Year is required!");
+            } elseif (preg_match('/[\'^£$%&*()}{@#~?><>,.|=_+¬-a-zA-Z]/', $year) || !is_numeric($year) || strlen($year) != 4) {
+                array_push($errorarray, "Only 4 numbers! No letters or special characters are allowed!");
             }
+
             //Type of expense check (should be alphanumeric) and no more than 16 characters
             $type = htmlspecialchars($_POST['type']);
-            if (ctype_alnum($type) && strlen($type) <= 16) {
-            } else {
+            if (empty($type)) {
+                array_push($errorarray, "Type of expense is required!");
+            } elseif (!ctype_alnum($type) || strlen($type) > 16) {
                 array_push($errorarray, "Type of expense should be alphanumeric and no more than 16 characters!");
             }
+
             //Amount check, should be only numbers
             $amount = htmlspecialchars($_POST['amount']);
             if (is_numeric($amount)) {
@@ -28,6 +33,8 @@ function validation($at)
                 array_push($errorarray, "Invalid amount!");
             }
             if ($at == 'update') {
+
+                //ID validation for updating
                 if (is_numeric($_POST['expenseid']) && $_POST['expenseid'] != 0) {
                     $float = htmlspecialchars($_POST['expenseid']);
                     if (intval($float) == floatval($float)) {
@@ -53,6 +60,7 @@ function validation($at)
     return $errorarray;
 }
 
+// Placing prepared statements into functions for easier calling in Expenses_Crud.php later on.
 function addexpense($year, $type, $amount, $con, $refresh, $errorarray)
 {
     $query = $con->prepare("INSERT INTO `expenses` (`year`,`type`,`amount`) VALUES

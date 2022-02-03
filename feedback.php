@@ -32,7 +32,6 @@
 <?php
 
 include 'connect.php';
-
 $stmt = $conn->prepare("SELECT feedbackid,fname,subject,email,feedback,department FROM swaprj.feedback");
 $res = $stmt->execute();
 $stmt->bind_result($feedbackid,$fname,$subject,$email, $feedback, $department);

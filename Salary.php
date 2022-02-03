@@ -34,7 +34,6 @@
      if (!isset($_SESSION['user'])) {
         header("Location: index.php");     //Prevent broken access control
      }
-     echo $_SESSION['user'];
      
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      

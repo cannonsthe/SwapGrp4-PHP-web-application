@@ -27,7 +27,6 @@
     if (!isset($_SESSION['user'])) {     //Prevent broken access control
        header("Location: index.php");
     }
-    echo $_SESSION['user'];
     ?>
 
      <b>Add Records</b><br>

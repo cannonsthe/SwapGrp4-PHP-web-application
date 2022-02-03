@@ -33,6 +33,7 @@
       <!-- Login Form -->
       <div>
         <form action="login_function.php" method="POST">
+          <input type="hidden" name="token" value="<?php echo $token; ?>" />
           <input type="text" id="user" class="fadeIn second" name="user" placeholder="user"><br />
           <input type="text" id="password" class="fadeIn third" name="password" placeholder="password"><br />
           <input type="submit" class="fadeIn fourth" value="Login">

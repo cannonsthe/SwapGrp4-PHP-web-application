@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query->execute();
         $query->fetch();
         if ($_POST['password'] == $password) {
-            header('Location: Employee.php');
+            header('Location: Expenses.php');
         } else {
             echo $invalid;
         }

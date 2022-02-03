@@ -17,13 +17,17 @@
            <a href="Expenses.php" > General Expenses</a>
            <a href="CPF.php" class="active">CPF Contributions</a>
            <a href="feedback.php">Feedback</a>
-           <a href="index.php">Logout</a>
+           <a href="logout.php">Logout</a>
        </div>
     </div>
     <div class="container">
     <?php
 
         include 'connect.php';
+        session_start();
+                        if(!isset($_SESSION['user'])){
+                            header("Location:index.php");
+                        }
 
         
             
@@ -31,7 +35,7 @@
 
 
 
-        //Query swaprj database and select data from salary table
+        //Query swaprj database and select data from cpf table
         $query="SELECT cpfid FROM swaprj.cpf WHERE cpfid=" . $_GET['cpfID'] ; 
         $result=mysqli_query($conn, $query);
 

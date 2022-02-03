@@ -19,7 +19,7 @@
             <a href="Expenses.php"> General Expenses</a>
             <a href="#" class="active">CPF Contributions</a>
             <a href="feedback.php">Feedback</a>
-            <a href="index.php">Logout</a>
+            <a href="logout.php">Logout</a>
         </div>
     </div>
 
@@ -42,6 +42,11 @@
 
                         <?php
                         include 'connect.php';
+                        session_start();
+                        if(!isset($_SESSION['user'])){
+                            header("Location:index.php");
+                        }
+                        echo $_SESSION['user'];
 
 
 

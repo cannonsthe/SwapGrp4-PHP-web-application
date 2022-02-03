@@ -9,9 +9,12 @@
 </head>
 <body>
 <?php 
-session_start();
+    session_start();
+    $token = hash("sha256",uniqid(rand(), TRUE));
+    $_SESSION['token'] = $token;
                         if(!isset($_SESSION['user'])){
                             header("Location:index.php");
+
                         }
                         
                         ?>
@@ -31,7 +34,7 @@ session_start();
         <form action="cpf_create2.php" method="post">
 
 
-            
+            <input type ="hidden" name="token" value="<?php echo $token; ?>" />
             <input type="hidden" name="cpfid">
 
             <label for="fname">Full Name</label>

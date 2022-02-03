@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <?php
+        include 'session.php';
+    ?>
     <div class="navbar">
        <a href="#" class="logo">FRecords</a>
        <div class="sections">
@@ -18,7 +21,7 @@
            <a href="Expenses.php" > General Expenses</a>
            <a href="CPF.php" >CPF Contributions</a>
            <a href="feedback.php" class="active">Feedback</a>
-           <a href="index.php">Logout</a>
+           <a href="logout.php">Logout</a>
        </div>
     </div>
     <br><br>

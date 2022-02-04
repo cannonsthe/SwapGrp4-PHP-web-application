@@ -7,8 +7,8 @@ if (isset($_SESSION['user'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = $_POST['user'];
         $fpassword = $_POST['password'];
-        //$hashAlgo = "sha256";
-        //$hashValue = hash($hashAlgo, $fpassword);
+        $hashAlgo = "sha256";
+        $hashValue = hash($hashAlgo, strtolower($fpassword));
        $pass = validatelogin($fname, $fpassword);
         if ($pass == true) {
             $query = $con->prepare("select password from user_information WHERE fname=?");
@@ -16,7 +16,7 @@ if (isset($_SESSION['user'])) {
             $query->bind_result($password);
             $query->execute();
             $query->fetch();
-            if ($_POST['password'] == $password) {
+            if ($hashValue == $password) {
                 session_start();
                 $_SESSION['user'] = $fname;
                 header('Location: Expenses.php');

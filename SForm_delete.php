@@ -27,7 +27,6 @@
         header("Location: index.php");
      }
 
-
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      
      //Check if the connection works or not

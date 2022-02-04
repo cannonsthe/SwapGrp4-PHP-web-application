@@ -45,11 +45,13 @@
         $cpfms=$_POST['cpfms'];
         $p_email=$_POST['p_email'];
         
-        //$hashAlgo = "sha256";
-        //$hashValue = hash($hashAlgo, $password);
+        //$hashValue = password_hash($password, PASSWORD_DEFAULT);
+
+        $hashAlgo = "sha256";
+        $hashValue = hash($hashAlgo, $password);
 
         $stmt = $conn->prepare("INSERT into swaprj.user_information VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("issssssssssss", $userid, $fname, $w_email, $department, $dateregistered, $position, $password, $bankname, $bankaccount, $cpfoa, $cpfsa, $cpfms, $p_email);
+        $stmt->bind_param("issssssssssss", $userid, $fname, $w_email, $department, $dateregistered, $position, $hashValue, $bankname, $bankaccount, $cpfoa, $cpfsa, $cpfms, $p_email);
         $res = $stmt->execute();
         if($res){
             echo "<strong><h1 style='text-align:center;'>";

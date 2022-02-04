@@ -7,7 +7,9 @@ if (isset($_SESSION['user'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = $_POST['user'];
         $fpassword = $_POST['password'];
-        $pass = validatelogin($fname, $fpassword);
+        //$hashAlgo = "sha256";
+        //$hashValue = hash($hashAlgo, $fpassword);
+       $pass = validatelogin($fname, $fpassword);
         if ($pass == true) {
             $query = $con->prepare("select password from user_information WHERE fname=?");
             $query->bind_param("s", $fname);

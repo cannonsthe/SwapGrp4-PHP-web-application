@@ -28,7 +28,11 @@
      if (!isset($_SESSION['user'])) {     //Prevent broken access control
         header("Location: index.php");
      }
-     
+     $token = hash(“sha256”,uniqid(rand(), TRUE));
+     $_SESSION['token'] = $token;
+     $_SESSION['token_time'] = time();
+
+
      $con = mysqli_connect("localhost","root","","swaprj");  //Open a connection to database server(localhost,user,password,dbname)
      
      //Check if the connection works or not

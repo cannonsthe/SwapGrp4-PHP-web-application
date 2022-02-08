@@ -31,13 +31,13 @@
      
         include 'connect.php';
 
-        //Query swaprj database and select data from salary table
+        //Query swaprj database and select data from user information table
         $query="SELECT userid, fname, w_email, department, dateregistered, position, password, bankname, bankaccount, cpfoa, cpfsa, cpfms, p_email FROM swaprj.user_information WHERE userid=" . $_GET['UserID']; 
         $result=mysqli_query($conn, $query);
 
-        //Getting the rows of data from the salary table
+        //Getting the rows of data from the user information table
         $nrows=mysqli_num_rows($result); 
-        if ($nrows>0) {                       //Create variables for the data in the salary table
+        if ($nrows>0) {                       //Create variables for the data in the user information table
             $row=mysqli_fetch_assoc($result);
             $userid=$row['userid'];
             $fname=$row['fname'];

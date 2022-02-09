@@ -52,14 +52,31 @@ include 'connect.php';
      //else{
          //echo "INSERT OK<br>";
      //}
-
+     $errorarray = array();
+     if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+     if (is_numeric($_POST['feedbackid']) && $_POST['feedbackid'] != 0) {
+        $float = htmlspecialchars($_POST['feedbackid']);
+        if (intval($float) == floatval($float)) {
+        } else {
+            array_push($errorarray, "Enter a valid ID!");
+        }
+    } else {
+        array_push($errorarray, "Enter a valid ID!");
+    }
+}
      $stmt = $conn->prepare("INSERT into swaprj.feedback VALUES(?,?,?,?,?,?)");
      $stmt->bind_param("isssss", $feedbackid, $fname, $subject, $email, $feedback, $department);
-     $res = $stmt->execute();
-     if($res){
-         echo "<p style='text-align:center;'>Insert successful</p>";
-     }else
-        echo "Unable to insert";
+     if (!empty($errorarray)) {
+        foreach ($errorarray as $array) {
+            echo $array;
+            echo "<br>";
+        }
+    } else {
+        $stmt->execute(); //execute query
+        echo "<p style='text-align:center;'>Insert successful</p>";
+    }
+
     
 ?>
         <form style="text-align:center;margin-top:5px;margin-bottom:5px;">

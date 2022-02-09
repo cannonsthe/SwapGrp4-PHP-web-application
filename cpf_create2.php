@@ -34,20 +34,68 @@
         $fname=$_POST['fname'];
         $datepaid=$_POST['datepaid'];
         $month=$_POST['month'];
-        $amount=$_POST['amount'];
-        $cpfoa=$_POST['cpfoa'];
-        $cpfsa=$_POST['cpfsa'];
-        $cpfms=$_POST['cpfms'];
+        $amount = htmlspecialchars($_POST['amount']);
+        $cpfoa=htmlspecialchars($_POST['cpfoa']);
+        $cpfsa=htmlspecialchars($_POST['cpfsa']);
+        $cpfms=htmlspecialchars($_POST['cpfms']);
 
+        $errorarray = array();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($datepaid)) {
+                array_push($errorarray, "Date paid is required!");
+            } elseif (!is_numeric($datepaid) || strlen($datepaid) != 8) {
+                array_push($errorarray, "Please give a proper date format! (YYYYMMDD)");
+            }
+
+            
+            if (is_numeric($amount)) {
+                $amount = round(floatval($_POST['amount']), 2);
+                if (is_float($amount) && $amount >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid amount! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfoa)) {
+                $cpfoa = round(floatval($_POST['cpfoa']), 2);
+                if (is_float($cpfoa) && $cpfoa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Ordinary Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfsa)) {
+                $cpfsa = round(floatval($_POST['cpfsa']), 2);
+                if (is_float($cpfsa) && $cpfsa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Special Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfms)) {
+                $cpfms = round(floatval($_POST['cpfms']), 2);
+                if (is_float($cpfms) && $cpfms >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Medishield Balance! Please input a proper amount!");
+            }
+
+        }
 
         $stmt = $conn->prepare("INSERT into swaprj.cpf VALUES(?,?,?,?,?,?,?,?)");
         $stmt->bind_param("isssssss", $cpfid, $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms);
-        $res = $stmt->execute();
-        if($res){
+        
+        if (!empty($errorarray)) {
+            foreach ($errorarray as $array) {
+                echo $array;
+                echo "<br>";
+            }
+        } else {
+            $stmt->execute(); //execute query
             echo "<strong><h1 style='text-align:center;'>";
             echo "Successfully added CPF record</h1></strong>";
-        }else
-            echo "Unable to insert";
+        }
+
     ?>
     <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
         <a href='CPF.php'>

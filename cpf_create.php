@@ -38,13 +38,13 @@
             <input type="hidden" name="cpfid">
 
             <label for="fname">Full Name</label>
-            <input type="text" name="fname">
+            <input type="text" name="fname" required>
     
             <label for="datepaid">Date Paid</label>
-            <input type="text" name="datepaid">
+            <input type="text" name="datepaid" required>
     
             <label for="month">For Month</label>
-            <select name="month">
+            <select name="month" required>
                 <option></option>
                 <option>January</option>
                 <option>February</option>
@@ -61,16 +61,16 @@
             </select>
     
             <label for="amount">Amount</label>
-            <input type="text" name="amount">
+            <input type="text" name="amount" required>
 
             <label for="cpfoa">Updated CPF Ordinary Account</label>
-            <input type="text" name="cpfoa">
+            <input type="text" name="cpfoa" required>
 
             <label for="cpfsa">Updated CPF Special Account</label>
-            <input type="text" name="cpfsa">
+            <input type="text" name="cpfsa" required>
 
             <label for="cpfms">Updated CPF Medishield Account</label>
-            <input type="text" name="cpfms">
+            <input type="text" name="cpfms" required>
     
     
     

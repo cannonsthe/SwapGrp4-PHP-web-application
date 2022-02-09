@@ -40,9 +40,9 @@
         $password=$_POST['password'];
         $bankname=$_POST['bankname'];
         $bankaccount=$_POST['bankaccount'];
-        $cpfoa=$_POST['cpfoa'];
-        $cpfsa=$_POST['cpfsa'];
-        $cpfms=$_POST['cpfms'];
+        $cpfoa=htmlspecialchars($_POST['cpfoa']);
+        $cpfsa=htmlspecialchars($_POST['cpfsa']);
+        $cpfms=htmlspecialchars($_POST['cpfms']);
         $p_email=$_POST['p_email'];
         
         //$hashValue = password_hash($password, PASSWORD_DEFAULT);
@@ -50,14 +50,56 @@
         $hashAlgo = "sha256";
         $hashValue = hash($hashAlgo, $password);
 
+        $errorarray = array();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($dateregistered)) {
+                array_push($errorarray, "Date paid is required!");
+            } elseif (!is_numeric($dateregistered) || strlen($dateregistered) != 8) {
+                array_push($errorarray, "Please give a proper date format! (YYYYMMDD)");
+            }
+
+            if (is_numeric($cpfoa)) {
+                $cpfoa = round(floatval($_POST['cpfoa']), 2);
+                if (is_float($cpfoa) && $cpfoa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Ordinary Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfsa)) {
+                $cpfsa = round(floatval($_POST['cpfsa']), 2);
+                if (is_float($cpfsa) && $cpfsa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Special Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfms)) {
+                $cpfms = round(floatval($_POST['cpfms']), 2);
+                if (is_float($cpfms) && $cpfms >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Medishield Balance! Please input a proper amount!");
+            }
+
+        }
+
+
         $stmt = $conn->prepare("INSERT into swaprj.user_information VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("issssssssssss", $userid, $fname, $w_email, $department, $dateregistered, $position, $hashValue, $bankname, $bankaccount, $cpfoa, $cpfsa, $cpfms, $p_email);
-        $res = $stmt->execute();
-        if($res){
+
+        if (!empty($errorarray)) {
+            foreach ($errorarray as $array) {
+                echo $array;
+                echo "<br>";
+            }
+        } else {
+            $stmt->execute(); //execute query
             echo "<strong><h1 style='text-align:center;'>";
             echo "Successfully Insert USER INFORMATION</h1></strong>";
-        }else
-            echo "Unable to insert";
+        }
+
+        
     ?>
 
     <br>

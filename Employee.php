@@ -59,9 +59,9 @@
                  echo "<th>Password</th>";
                  echo "<th>Bank Name</th>";
                  echo "<th>Bank Account</th>";
-                 echo "<th>CPF Ordinary Account</th>";
-                 echo "<th>CPF Special Account</th>";
-                 echo "<th>CPF Medishield Account</th>";
+                 echo "<th>CPF Ordinary Account (SGD)</th>";
+                 echo "<th>CPF Special Account (SGD)</th>";
+                 echo "<th>CPF Medishield Account (SGD)</th>";
                  echo "<th>Personal Email</th>";
                  echo "<th>Update</th>";
                  echo "<th>Delete</th>";

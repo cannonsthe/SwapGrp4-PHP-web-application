@@ -57,13 +57,13 @@
             <input type="hidden" name="cpfid" value="<?php echo $_GET['cpfID']; ?>">
             
             <label for="fname">Full Name</label>
-            <input type="text" name="fname" value="<?php echo $fname; ?>">
+            <input type="text" name="fname" value="<?php echo $fname; ?>" required>
     
             <label for="datepaid">Date Paid</label>
-            <input type="text" name="datepaid" value="<?php echo $datepaid; ?>">
+            <input type="text" name="datepaid" value="<?php echo $datepaid; ?>" required>
     
             <label for="month">For Month</label>
-            <select name="month">
+            <select name="month" required>
                 <option><?php echo $month; ?></option>
                 <option>January</option>
                 <option>February</option>
@@ -80,16 +80,16 @@
             </select>
     
             <label for="amount">Amount</label>
-            <input type="text" name="amount" value="<?php echo $amount; ?>">
+            <input type="text" name="amount" value="<?php echo $amount; ?>" required>
 
             <label for="cpfoa">Updated CPF Ordinary Account</label>
-            <input type="text" name="cpfoa" value="<?php echo $cpfoa; ?>">
+            <input type="text" name="cpfoa" value="<?php echo $cpfoa; ?>" required>
 
             <label for="cpfsa">Updated CPF Special Account</label>
-            <input type="text" name="cpfsa" value="<?php echo $cpfsa; ?>">
+            <input type="text" name="cpfsa" value="<?php echo $cpfsa; ?>" required>
 
             <label for="cpfms">Updated CPF Medishield Account</label>
-            <input type="text" name="cpfms" value="<?php echo $cpfms; ?>">
+            <input type="text" name="cpfms" value="<?php echo $cpfms; ?>" required>
 
             <input class="button" type="submit"  value="Submit">
         </form>

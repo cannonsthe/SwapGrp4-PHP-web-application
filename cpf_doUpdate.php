@@ -36,24 +36,69 @@
         $fname = $_POST['fname'];
         $datepaid = $_POST['datepaid'];
         $month = $_POST['month'];
-        $amount = $_POST['amount'];
-        $cpfoa = $_POST['cpfoa'];
-        $cpfsa = $_POST['cpfsa'];
-        $cpfms = $_POST['cpfms'];
         $cpfid = $_POST['cpfid'];
+        $amount = htmlspecialchars($_POST['amount']);
+        $cpfoa=htmlspecialchars($_POST['cpfoa']);
+        $cpfsa=htmlspecialchars($_POST['cpfsa']);
+        $cpfms=htmlspecialchars($_POST['cpfms']);
+
+        $errorarray = array();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            if (is_numeric($amount)) {
+                $amount = round(floatval($_POST['amount']), 2);
+                if (is_float($amount) && $amount >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid amount! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfoa)) {
+                $cpfoa = round(floatval($_POST['cpfoa']), 2);
+                if (is_float($cpfoa) && $cpfoa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Ordinary Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfsa)) {
+                $cpfsa = round(floatval($_POST['cpfsa']), 2);
+                if (is_float($cpfsa) && $cpfsa >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Special Account Balance! Please input a proper amount!");
+            }
+
+            if (is_numeric($cpfms)) {
+                $cpfms = round(floatval($_POST['cpfms']), 2);
+                if (is_float($cpfms) && $cpfms >= 1) {
+                }
+            } else {
+                array_push($errorarray, "Invalid CPF Medishield Balance! Please input a proper amount!");
+            }
+
+        }
 
         $stmt = $conn->prepare("UPDATE swaprj.cpf SET fname=?, datepaid=?, month=?, amount=?, cpfoa=?, cpfsa=?, cpfms=? WHERE cpfid=?");
         $stmt->bind_param("sssssssi", $fname, $datepaid, $month, $amount, $cpfoa, $cpfsa, $cpfms, $cpfid);
-        $res = $stmt->execute();
-        if ($res) {
-            echo "Update successful";
-        } else
-            echo "Unable to update";
 
+        if (!empty($errorarray)) {
+            foreach ($errorarray as $array) {
+                echo $array;
+                echo "<br>";
+            }
+        } else {
+            $stmt->execute(); //execute query
+            echo "<strong><h1 style='text-align:center;'>";
+            echo "Successfully updated CPF record</h1></strong>";
+        }
 
         ?>
-
-        ?>
+        <form style="text-align:center;margin-top:5px;margin-bottom:5px;">
+        <a href='CPF.php'>
+        <input class='button' type='button' value='Return to CPF Contributions' /></a>
+    </form>
+        
 
     </div>
 </body>

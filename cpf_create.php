@@ -34,7 +34,7 @@
         <form action="cpf_create2.php" method="post">
 
 
-            <input type ="hidden" name="token" value="<?php echo $token; ?>" />
+ 
             <input type="hidden" name="cpfid">
 
             <label for="fname">Full Name</label>

@@ -46,7 +46,7 @@
                         if(!isset($_SESSION['user'])){
                             header("Location:index.php");
                         }
-                        echo $_SESSION['user'];
+                        //echo $_SESSION['user'];
 
 
 
